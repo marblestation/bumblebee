@@ -140,7 +140,9 @@ require.config({
 
         IndividualLibraryWidget : 'js/widgets/library_individual/widget',
         AllLibrariesWidget : 'js/widgets/libraries_all/widget',
-        LibraryListWidget : 'js/widgets/library_list/widget'
+        LibraryListWidget : 'js/widgets/library_list/widget',
+
+        TestWidget: 'js/widgets/react-test/widget'
       },
       plugins: {}
       }
@@ -182,6 +184,7 @@ require.config({
      babel: 'libs/requirejs-babel-plugin/babel-5.8.34.min',
     'redux' : 'libs/redux/index',
     'react-redux' : 'libs/react-redux/index',
+    'react-backbone': 'libs/react-backbone/react.backbone',
     'redux-thunk' : 'libs/redux-thunk/index',
     'backbone': 'libs/backbone/backbone',
     'hbs': 'libs/require-handlebars-plugin/hbs',

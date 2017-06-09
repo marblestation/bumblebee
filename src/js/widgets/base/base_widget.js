@@ -19,7 +19,7 @@ define([
   /**
    * Default PubSub based widget; the main functionality is inside
    *
-   *  dispatchRequest()
+   *  dispa tchRequest()
    *    - publishes ApiRequest object into PubSub (to initiate search)
    *
    *  processResponse()

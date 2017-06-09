@@ -66,7 +66,7 @@ define([
           'KeywordFacet', 'BibstemFacet', 'BibgroupFacet', 'DataFacet', 'ObjectFacet',
           'VizierFacet', 'GrantsFacet', 'GraphTabs', 'QueryDebugInfo',
           'ExportDropdown', 'VisualizationDropdown', 'SearchWidget',
-          'Sort', 'BreadcrumbsWidget', 'PubtypeFacet'
+          'Sort', 'BreadcrumbsWidget', 'PubtypeFacet', 'TestWidget'
         ];
 
         var detailsPageAlwaysVisible = [
@@ -99,6 +99,11 @@ define([
           //another function that sets a route
           this.route = "";
           self.get('index-page').execute();
+        });
+
+        this.set('TestWidget', function () {
+          app.getObject('MasterPageManager').show('LandingPage', ['testWidget']);
+          this.route = '#testy';
         });
 
 
