@@ -142,7 +142,7 @@ require.config({
         AllLibrariesWidget : 'js/widgets/libraries_all/widget',
         LibraryListWidget : 'js/widgets/library_list/widget',
 
-        TestWidget: 'js/widgets/react-test/widget'
+        TestWidget: 'es6!js/widgets/react-test/widget.jsx'
       },
       plugins: {}
       }

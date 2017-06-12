@@ -27,7 +27,7 @@ define([
 
 
   var View = Backbone.View.extend({
-    render: function () {
+    render: function (store, actions) {
       ReactDOM.render(
         <ReactRedux.Provider store={store}>
           <Container></Container>

@@ -6,7 +6,7 @@ define([
   'js/widgets/base/base_widget'
 ], function (Redux, Backbone, View, _, BaseWidget) {
 
-  var action = function (text) {
+  var actions = function (text) {
     return {
       type: 'updateQuery',
       text: text
@@ -34,13 +34,14 @@ define([
   var Base = BaseWidget.extend({
     initialize: function (options) {
       this.options = options || {};
-      this.view = new View();
       this.store = Redux.createStore(app);
+      this.view = new View();
     },
     activate: function (beehive) {
       this.setBeeHive(beehive);
       _.bindAll(this, 'dispatchRequest', 'processResponse');
       this.getPubSub().subscribe(this.getPubSub().INVITING_REQUEST, this.dispatchRequest);
+      this.view.render = _.partial(this.view.render, this.store, actions);
     },
     dispatchRequest: function (apiQuery) {
       //this.store.dispatch(action(apiQuery.get('q')));
