@@ -1,11 +1,8 @@
 define([
   'underscore',
-  './actions'
-], function (_, actions) {
-
-  var initialState = {
-    query: ''
-  };
+  './actions',
+  './initialState'
+], function (_, actions, initialState) {
 
   var exports = function (state, action) {
     if (!state) {

@@ -1,21 +1,25 @@
 define([
   './actions',
+  './initialState',
   'backbone',
   'react',
   'redux',
+  'redux-thunk',
   'react-redux',
   'react-dom',
   './reducers',
   'es6!./components/app.jsx',
   'js/widgets/base/base_widget'
-], function (actions, Backbone, React, Redux, ReactRedux, ReactDOM, reducers, App, BaseWidget) {
-
-  var store = Redux.createStore(reducers);
+], function (
+  actions, initialState, Backbone, React, Redux, thunk, ReactRedux, ReactDOM, reducers, App, BaseWidget) {
 
   var View = Backbone.View.extend({
+    initialize: function (options) {
+      this.store = options.store;
+    },
     render: function () {
       ReactDOM.render(
-        <ReactRedux.Provider store={store}>
+        <ReactRedux.Provider store={this.store}>
           <App />
         </ReactRedux.Provider>,
         this.el
@@ -24,11 +28,13 @@ define([
     }
   });
 
-  var exports = BaseWidget.extend({
+  var Widget = BaseWidget.extend({
     initialize: function (options) {
       this.options = options || {};
-      this.store = store;
-      this.view = new View();
+      this.store = Redux.createStore(reducers, Redux.applyMiddleware(thunk.default.withExtraArgument(this)));
+      this.view = new View({
+        store: this.store
+      });
     },
     activate: function (beehive) {
       this.setBeeHive(beehive);
@@ -43,5 +49,5 @@ define([
     }
   });
 
-  return exports;
+  return Widget;
 });

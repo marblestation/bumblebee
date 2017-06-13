@@ -1,20 +1,39 @@
 define([
- 'react',
- '../containers/updateText'
-], function (React, UpdateText) {
+  '../actions',
+  'react',
+  'react-redux'
+], function (actions, React, ReactRedux) {
 
   var App = React.createClass({
     render: function () {
       return (
-        <h1>
-          <UpdateText/>
-        </h1>
+        <div>
+          <h1>
+            {this.props.query}
+          </h1>
+          <button onClick={this.props.alert}>ALERT</button>
+        </div>
       );
     },
-    PropTypes: {
-      query: React.PropTypes.string.isRequired
+    propTypes: {
+      query: React.PropTypes.string.isRequired,
+      alert: React.PropTypes.func
     }
   });
 
-  return App;
+  var mapStateToProps = function (state) {
+    return {
+      query: state.query
+    };
+  };
+
+  var mapDispatchToProps = function (dispatch) {
+    return {
+      alert: function () {
+        return dispatch(actions.createAlert('hello'));
+      }
+    }
+  }
+
+  return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(App);
 });
