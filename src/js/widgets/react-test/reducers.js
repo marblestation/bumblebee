@@ -4,6 +4,8 @@ define([
   './initialState'
 ], function (_, actions, initialState) {
 
+  var initialState = function ()
+
   var exports = function (state, action) {
     if (!state) {
       return initialState;
