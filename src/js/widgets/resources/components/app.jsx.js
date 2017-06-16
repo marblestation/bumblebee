@@ -1,27 +1,32 @@
 define([
   '../actions',
   'react',
-  'react-redux'
-], function (actions, React, ReactRedux) {
+  'react-redux',
+  'es6!./fullTextSources.jsx',
+  'es6!./dataProducts.jsx',
+  'es6!./loading.jsx'
+], function (
+  actions, React, ReactRedux, FullTextSources, DataProducts, LoadingIcon) {
 
   var App = React.createClass({
     render: function () {
       return (
-        <div></div>
+        <div className="s-right-col-widget-container">
+          <LoadingIcon show={this.props.isLoading}/>
+          <FullTextSources sources={this.props.fullTextSources}/>
+          <DataProducts products={this.props.dataProducts}/>
+        </div>
       );
-    },
-    propTypes: {
-
     }
   });
 
   var mapStateToProps = function (state) {
-    return {};
+    return {
+      fullTextSources: state.fullTextSources,
+      dataProducts: state.dataProducts,
+      isLoading: state.isLoading
+    };
   };
 
-  var mapDispatchToProps = function (dispatch) {
-    return {};
-  }
-
-  return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(App);
+  return ReactRedux.connect(mapStateToProps)(App);
 });

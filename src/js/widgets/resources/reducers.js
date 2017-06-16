@@ -4,11 +4,13 @@ define([
 
   var initialState = function () {
     return {
-      documents: []
+      dataProducts: [],
+      fullTextSources: [],
+      isLoading: true
     };
   };
 
-  var exports = function (state, action) {
+  var exports = function reducers (state, action) {
     var state = state ? state : initialState();
 
     switch(action.type) {
@@ -16,7 +18,17 @@ define([
         return Object.assign({}, state, {
           documents: action.documents
         });
-      default: return state;
+      case actions.TYPES.IS_LOADING:
+        return Object.assign({}, state, {
+          isLoading: action.value
+        });
+      case actions.TYPES.RESOURCES:
+        return Object.assign({}, state, {
+          dataProducts: action.dataProducts,
+          fullTextSources: action.fullTextSources
+        });
+      default:
+        return state;
     }
   };
 

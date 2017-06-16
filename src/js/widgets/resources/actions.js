@@ -1,20 +1,47 @@
 define([
-], function () {
+  'underscore',
+  'js/components/api_query'
+], function (_, ApiQuery) {
+
+  var FIELDS = ['links_data'];
 
   var actions = {};
+
   actions.TYPES = {
-    DOCUMENTS: 'DOCUMENTS'
+    RESOURCES: 'RESOURCES',
+    'IS_LOADING': 'IS_LOADING'
   };
 
-  actions.updateDocuments = function (documents) {
+  actions.updateResources = function (value) {
     return {
-      TYPE: actions.TYPES.DOCUMENTS,
-      documents: documents
+      type: actions.TYPES.RESOURCES,
+      fullTextSources: value.fullTextSources,
+      dataProducts: value.dataProducts
     };
   };
 
+  actions.loading = function (value) {
+    return {
+      type: actions.TYPES.IS_LOADING,
+      value: true
+    }
+  };
+
+  actions.loaded = function (value) {
+    return {
+      type: actions.TYPES.IS_LOADING,
+      value: false
+    }
+  };
+
+  /**
+   * Get the current query, clean up bibcode and send it off to load
+   * the links
+   * @param {object} apiQuery
+   * @returns {Function}
+   */
   actions.displayDocuments = function (apiQuery) {
-    return function (dispatch, getState, widget) {
+    return function (dispatch) {
       var bibcode = apiQuery.get('q');
       if (bibcode.length > 0 && bibcode[0].indexOf('bibcode:') > -1) {
         bibcode = bibcode[0].replace('bibcode:', '');
@@ -23,28 +50,24 @@ define([
     };
   };
 
+  /**
+   * Create query to retrieve the link data
+   * @param {String} bibcode
+   * @returns {Function}
+   */
   actions.loadBibcodeData = function (bibcode) {
     return function (dispatch, getState, widget) {
       if (bibcode === widget._bibcode) {
-        widget.trigger('page-manager-event', 'widget-ready', { 'isActive': true });
+        widget.trigger('page-manager-event', 'widget-ready', {
+          'isActive': true
+        });
       } else {
         widget._bibcode = bibcode;
         var searchTerm = 'bibcode:' + bibcode;
 
-
-      }
-
-
-      if (bibcode === this._bibcode){
-        this.trigger('page-manager-event', 'widget-ready', {'isActive': true});
-      }
-      else {
-        this._bibcode = bibcode;
-        var searchTerm = "bibcode:" + this._bibcode;
-        //abstractPageFields comes from the LinkGenerator Mixin
-        this.dispatchRequest(new ApiQuery({
+        widget.dispatchRequest(new ApiQuery({
           'q': searchTerm,
-          fl : this.requiredFields
+          fl: FIELDS.join(',')
         }));
       }
     };

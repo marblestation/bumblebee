@@ -132,7 +132,7 @@ require.config({
         ShowCoreads : 'js/wraps/coreads',
         //can't camel case because router only capitalizes first letter
         ShowTableofcontents : 'js/wraps/table_of_contents',
-        ShowResources : 'js/widgets/resources/widget',
+        ShowResources : 'es6!js/widgets/resources/widget.jsx',
         ShowRecommender : 'js/widgets/recommender/widget',
         ShowMetrics: 'js/wraps/paper_metrics',
         ShowPaperExport : 'js/wraps/paper_export',
