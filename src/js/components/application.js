@@ -340,7 +340,9 @@ define([
 
       // start loading the modules
       //console.log('loading', implNames, impls)
-      require(impls, callback, errback);
+      require.ensure([], function (require) {
+        require(impls, callback, errback);
+      });
 
       return this._setTimeout(defer).promise();
     },

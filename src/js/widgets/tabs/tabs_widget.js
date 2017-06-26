@@ -5,10 +5,10 @@ define([
   'lodash',
   'marionette',
   'bootstrap',
-  'hbs!./templates/tabs_inner',
-  'hbs!./templates/tabs_outer',
-  'hbs!./templates/tabs_title'],
-  function (
+  // 'hbs!./templates/tabs_inner',
+  // 'hbs!./templates/tabs_outer',
+  // 'hbs!./templates/tabs_title'],
+  ], function (
     _,
     Marionette,
     Bootstrap,

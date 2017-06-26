@@ -1,5 +1,5 @@
 define([
-      "underscore",
+      'lodash',
       "marionette",
       "hbs!./templates/results-page-layout",
       'hbs!./templates/results-control-row',

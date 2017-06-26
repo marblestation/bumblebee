@@ -169,7 +169,7 @@ require.config({
     'analytics': 'js/components/analytics',
 
     // Opt for Lo-Dash Underscore compatibility build over Underscore.
-    "underscore": "libs/lodash/lodash.compat",
+    'lodash': "libs/lodash/lodash.compat",
 
     // 3rd party dependencies
     // I can't for the life of my figure out how to swap non-minified libs in dev

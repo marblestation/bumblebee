@@ -25,7 +25,7 @@ define([
       'js/apps/bumblebox/bootstrap',
       'dynamic_config',
       'es5-shim',
-       'lodash'
+      'lodash'
     ],
     function(
       Router,

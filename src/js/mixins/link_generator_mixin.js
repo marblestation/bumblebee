@@ -1,4 +1,4 @@
-define(["underscore", "js/mixins/openurl_generator"], function(_, OpenURLGenerator){
+define(['lodash', "js/mixins/openurl_generator"], function(_, OpenURLGenerator){
 
 
 var linkGenerator = {
