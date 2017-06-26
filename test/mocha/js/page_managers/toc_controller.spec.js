@@ -1,5 +1,5 @@
 define([
-    'underscore',
+    'lodash',
     'jquery',
     'js/page_managers/toc_controller',
     'js/bugutils/minimal_pubsub',

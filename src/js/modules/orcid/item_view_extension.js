@@ -7,7 +7,7 @@
  */
 define([
     'backbone',
-    'underscore'
+    'lodash'
   ],
   function (Backbone, _) {
 

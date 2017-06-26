@@ -9,7 +9,7 @@
 
 define([
   'jquery',
-  'underscore',
+  'lodash',
   'js/components/api_query',
   'js/components/api_request',
   'js/components/api_response',

@@ -1,7 +1,7 @@
 
 define([
   'require',
-  'underscore'
+  'lodash'
 ], function(
   require,
   _

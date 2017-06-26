@@ -39,7 +39,7 @@
  */
 
 define([
-    'underscore',
+    'lodash',
     'bootstrap',
     'jquery',
     'backbone',

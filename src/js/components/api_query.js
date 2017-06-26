@@ -15,7 +15,7 @@
 
 define([
   'backbone',
-  'underscore',
+  'lodash',
   'js/components/solr_params',
   'js/components/facade'
 ], function (

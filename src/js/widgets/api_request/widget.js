@@ -2,7 +2,7 @@
  * Created by rchyla on 3/19/14.
  */
 
-define(['underscore', 'jquery', 'backbone', 'marionette',
+define(['lodash', 'jquery', 'backbone', 'marionette',
   'js/components/api_request',
   'js/components/api_query',
   'js/components/pubsub_events',

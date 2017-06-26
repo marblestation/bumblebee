@@ -1,6 +1,6 @@
 define([
    'react',
-   'underscore',
+   'lodash',
    'd3'
 ], function(
   React,

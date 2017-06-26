@@ -12,7 +12,7 @@ define([
   'js/components/json_response',
   'js/components/solr_params',
   'backbone',
-  'underscore',
+  'lodash',
   'jquery'], function(
   JsonResponse,
   SolrParams,

@@ -4,7 +4,7 @@
  * (e.g. solr_response)
  */
 
-define(['underscore',
+define(['lodash',
   'backbone',
   'js/components/api_query',
 ], function(

@@ -6,7 +6,7 @@
  * Mediator to coordinate UI-query exchange
  */
 
-define(['underscore',
+define(['lodash',
     'jquery',
     'cache',
     'js/components/generic_module',

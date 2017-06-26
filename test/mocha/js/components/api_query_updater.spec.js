@@ -1,5 +1,5 @@
 define([
-  'underscore',
+  'lodash',
   'js/components/api_query',
   'js/components/api_query_updater'
 ], function(

@@ -9,7 +9,7 @@
  */
 
 define([
-    'underscore',
+    'lodash',
     'bootstrap',
     'jquery',
     'jquery-querybuilder',

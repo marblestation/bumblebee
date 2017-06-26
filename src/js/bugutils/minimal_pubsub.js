@@ -29,7 +29,7 @@
  *
  */
 
-define(['underscore', 'backbone',
+define(['lodash', 'backbone',
   'js/components/query_mediator',
   'js/services/pubsub',
   'js/components/beehive',

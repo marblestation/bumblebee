@@ -1,5 +1,5 @@
 define([
-    'underscore',
+    'lodash',
     'js/components/generic_module',
     'js/mixins/dependon',
     'persist-js',

@@ -15,7 +15,7 @@
  */
 
 define([
-  'underscore',
+  'lodash',
   'backbone',
   'js/components/solr_response',
   'js/components/facade'

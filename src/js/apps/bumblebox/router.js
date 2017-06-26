@@ -1,6 +1,6 @@
 define([
   'jquery',
-  'underscore',
+  'lodash',
   'backbone',
   'js/components/api_query',
   'js/mixins/dependon',

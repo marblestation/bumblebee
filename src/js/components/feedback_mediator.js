@@ -8,7 +8,7 @@
  */
 
 define([
-    'underscore',
+    'lodash',
     'jquery',
     'cache',
     'js/components/generic_module',

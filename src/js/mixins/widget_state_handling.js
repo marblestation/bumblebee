@@ -5,7 +5,7 @@
  *
  */
 define([
-  'underscore',
+  'lodash',
   'jquery',
   'js/widgets/widget_states',
   'hbs!js/widgets/base/templates/loading-template',

@@ -12,7 +12,7 @@
  * one-to-one relation between router<->navigator
  */
 
-define(['underscore',
+define(['lodash',
     'jquery',
     'cache',
     'js/components/generic_module',

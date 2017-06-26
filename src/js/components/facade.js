@@ -15,7 +15,7 @@
  *  var htmlInterface = new Facade(remoteInterface, htmlRemote);
  *
  */
-define(['underscore', 'js/components/facade'], function(_, Facade) {
+define(['lodash', 'js/components/facade'], function(_, Facade) {
   'use strict';
 
   // The Facade encapsulates objectIn according to the description

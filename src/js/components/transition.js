@@ -1,4 +1,4 @@
-define(['underscore'
+define(['lodash'
     ],
   function(
     _

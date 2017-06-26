@@ -3,7 +3,7 @@
  */
 
 define([
-    'underscore',
+    'lodash',
     'backbone',
     'js/components/api_query',
     'js/components/multi_params'

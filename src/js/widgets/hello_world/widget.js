@@ -25,10 +25,10 @@
  *  define(['list', 'of', 'imports'], function(my, foo, bar) {return something})
  */
 define([
-    // here we are importing using symbolic names, e.g. 'underscore' - this name
+    // here we are importing using symbolic names, e.g. 'lodash' - this name
     // is mapped to the underscore library (in our discovery.config.js)
 
-    'underscore', // very useful utilities
+    'lodash', // very useful utilities
     'jquery', // if you don't know jquery, then shame on you!
     'backbone', // Model-View-Controller framework (for building applications)
     'marionette', // Extension on top of Backbone; does useful things for us

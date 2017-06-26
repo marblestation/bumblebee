@@ -7,7 +7,7 @@ define([
   'js/components/api_targets',
   'analytics',
   'cache',
-  'underscore',
+  'lodash',
   'js/widgets/facet/reducers'
 ], function(
   ApiResponse,

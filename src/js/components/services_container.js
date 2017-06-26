@@ -6,7 +6,7 @@ define([
   'js/components/facade',
   'js/components/generic_module',
   'js/mixins/hardened',
-  'underscore'
+  'lodash'
   ],
   function(
   Facade,

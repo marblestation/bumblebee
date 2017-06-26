@@ -3,7 +3,7 @@
  * This module contains a set of utilities to bootstrap Discovery app
  */
 define([
-  'underscore',
+  'lodash',
   'jquery',
   'backbone',
   'js/components/api_query',

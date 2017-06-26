@@ -15,7 +15,7 @@
  * functionality
  */
 
-define(['underscore'], function(_) {
+define(['lodash'], function(_) {
   var PubSubKey = function(options) {
     _.extend(this,options);
   };

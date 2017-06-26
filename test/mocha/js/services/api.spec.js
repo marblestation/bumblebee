@@ -4,7 +4,7 @@
 
 define([
   'jquery',
-  'underscore',
+  'lodash',
   'js/services/api',
   'js/components/api_request',
   'js/components/api_query',

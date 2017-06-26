@@ -4,7 +4,7 @@ define([
     'jquery',
     'js/modules/orcid/orcid_api',
     'js/components/persistent_storage',
-    'underscore',
+    'lodash',
     'js/bugutils/minimal_pubsub',
     'js/components/pubsub_events',
     'js/modules/orcid/module'

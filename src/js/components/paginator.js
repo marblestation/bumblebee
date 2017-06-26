@@ -13,7 +13,7 @@
  * you call 'setMaxNum' -- this typically happens after the first
  * batch of results arrives from server (the widget must call 'setMaxNum')
  */
-define(['underscore'], function (_) {
+define(['lodash'], function (_) {
 
   var Paginator = function (options) {
 

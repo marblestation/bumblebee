@@ -1,4 +1,4 @@
-define(['underscore',
+define(['lodash',
     'js/components/transition'
     ],
   function(

@@ -5,7 +5,7 @@
  */
 
 define([
-      'underscore',
+      'lodash',
       'js/widgets/list_of_things/widget',
       'js/widgets/base/base_widget',
       'js/mixins/add_stable_index_to_collection',

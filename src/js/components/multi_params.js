@@ -5,7 +5,7 @@
  even if you try to set strings, you will always have
  list of strings
  */
-define(['backbone', 'underscore', 'jquery'], function(Backbone, _, $) {
+define(['backbone', 'lodash', 'jquery'], function(Backbone, _, $) {
 
 
   var Model = Backbone.Model.extend({

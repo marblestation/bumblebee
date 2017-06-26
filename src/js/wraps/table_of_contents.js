@@ -1,6 +1,6 @@
 
 define([
-    'underscore',
+    'lodash',
     'js/widgets/list_of_things/details_widget'
   ],
   function (

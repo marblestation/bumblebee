@@ -1,6 +1,6 @@
 define(['marionette',
     'backbone',
-    'underscore',
+    'lodash',
     'js/components/api_request',
     'js/components/api_query',
     'js/widgets/base/base_widget',

@@ -6,7 +6,7 @@
  */
 
 define([
-    'underscore',
+    'lodash',
     'backbone'
   ],
   function(

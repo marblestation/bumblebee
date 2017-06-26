@@ -1,6 +1,6 @@
 
 define(['jquery',
-  'underscore',
+  'lodash',
   'js/components/query_builder/plugin',
   'js/components/generic_module',
   'js/bugutils/minimal_pubsub'

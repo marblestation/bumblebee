@@ -1,7 +1,7 @@
 define([
   'react',
   'react-redux',
-  'underscore',
+  'lodash',
   'es6!./toggle_list',
   './reducers'
 ],  function(

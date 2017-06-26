@@ -1,6 +1,6 @@
 define([
     'backbone',
-    'underscore',
+    'lodash',
     'js/mixins/add_stable_index_to_collection'
 ],
 function(

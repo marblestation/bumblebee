@@ -6,7 +6,7 @@
  *
  */
 
-define(['underscore',
+define(['lodash',
     'js/components/generic_module',
     'js/components/api_query_updater'],
   function (_,

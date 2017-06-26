@@ -1,6 +1,6 @@
 
 define([
-    'underscore',
+    'lodash',
     'jquery',
     'js/components/feedback_mediator',
     'js/components/api_feedback',

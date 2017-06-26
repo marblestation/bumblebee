@@ -5,7 +5,7 @@
  *
  */
 define([
-    'underscore',
+    'lodash',
     'backbone',
     'js/widgets/facet/factory',
     'js/bugutils/minimal_pubsub'],

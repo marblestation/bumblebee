@@ -1,6 +1,6 @@
 define(
     [
-      'underscore',
+      'lodash',
       'redux',
       'redux-thunk',
       'js/widgets/facet/reducers'

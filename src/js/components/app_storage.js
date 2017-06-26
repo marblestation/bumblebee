@@ -4,7 +4,7 @@
 
 define([
   'backbone',
-  'underscore',
+  'lodash',
   'js/components/api_query',
   'js/mixins/hardened',
   'js/mixins/dependon'

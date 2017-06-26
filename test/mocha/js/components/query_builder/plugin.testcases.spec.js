@@ -1,4 +1,4 @@
-define(['underscore',
+define(['lodash',
     'js/components/query_builder/plugin',
     'js/bugutils/minimal_pubsub'],
   function (_,

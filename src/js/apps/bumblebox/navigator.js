@@ -6,7 +6,7 @@
 define([
   'jquery',
   'backbone',
-  'underscore',
+  'lodash',
   'js/components/navigator'
 ],
   function(

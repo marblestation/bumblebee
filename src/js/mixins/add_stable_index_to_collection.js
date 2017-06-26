@@ -5,7 +5,7 @@
  * 
  *  
  */
-define(['underscore'], function (_) {
+define(['lodash'], function (_) {
 
   var WidgetPaginator = {
 

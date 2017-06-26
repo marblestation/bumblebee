@@ -1,5 +1,5 @@
 define([
-	'underscore',
+	'lodash',
     'marionette',
     'backbone',
 	'cache',

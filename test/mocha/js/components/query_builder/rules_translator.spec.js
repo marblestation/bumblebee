@@ -1,7 +1,7 @@
 
 define([
   'jquery',
-  'underscore',
+  'lodash',
   'js/components/query_builder/rules_translator',
   'js/components/generic_module'
   ], function(

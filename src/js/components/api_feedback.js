@@ -1,5 +1,5 @@
 define([
-    'underscore',
+    'lodash',
     'backbone',
     'js/mixins/hardened'],
   function (_, Backbone, Hardened) {

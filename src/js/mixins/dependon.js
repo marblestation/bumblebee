@@ -7,7 +7,7 @@
  * to give them certain functionality
  */
 define([
-  'underscore',
+  'lodash',
   'js/components/pubsub_events',
   'js/components/pubsub_key'
   ], function(

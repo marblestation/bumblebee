@@ -2,7 +2,7 @@
  * Created by alex on 5/12/14.
  */
 define([
-  'underscore',
+  'lodash',
   'marionette',
   'bootstrap',
   'hbs!./templates/tabs_inner',

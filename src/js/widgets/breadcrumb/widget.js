@@ -13,7 +13,7 @@
  */
 
 define([
-    'underscore',
+    'lodash',
     'jquery',
     'backbone',
     'marionette',

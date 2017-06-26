@@ -20,7 +20,7 @@
 
 define([
     'backbone',
-    'underscore',
+    'lodash',
     'js/components/generic_module',
     './orcid_api',
   ],

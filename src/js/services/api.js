@@ -1,7 +1,7 @@
 
 
 define([
-    'underscore',
+    'lodash',
     'jquery',
     'js/components/generic_module',
     'js/components/api_request',

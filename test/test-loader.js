@@ -1,7 +1,7 @@
 define([
     "chai",
     "sinon",
-    'underscore',
+    'lodash',
     'jquery'
   ],
   function(

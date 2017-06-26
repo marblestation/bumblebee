@@ -3,7 +3,7 @@
  */
 
 define([
-    'underscore', 'backbone',
+    'lodash', 'backbone',
     'js/components/facade',
     'js/components/default_request'
   ],

@@ -16,7 +16,7 @@
 
 require(['js/components/application',
   'jquery',
-  'underscore'],
+  'lodash'],
   function(Application,
            $,
            _) {

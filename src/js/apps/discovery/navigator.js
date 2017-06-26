@@ -6,7 +6,7 @@
 define([
     'jquery',
     'backbone',
-    'underscore',
+    'lodash',
     'js/components/navigator',
     'js/components/api_feedback',
     'js/components/api_query_updater',

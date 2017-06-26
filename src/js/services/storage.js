@@ -1,5 +1,5 @@
 define([
-  'underscore',
+  'lodash',
   'js/components/persistent_storage'
 ], function(
   _,

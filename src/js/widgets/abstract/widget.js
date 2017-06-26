@@ -5,7 +5,7 @@ define([
     'marionette',
     'backbone',
     'jquery',
-    'underscore',
+    'lodash',
     'cache',
     'js/widgets/base/base_widget',
     'hbs!./templates/abstract_template',
