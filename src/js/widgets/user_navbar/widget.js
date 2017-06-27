@@ -1,6 +1,6 @@
 define([
   "marionette",
-  "hbs!./nav_template",
+  "./nav_template.html",
   'js/mixins/dependon'
 ], function (Marionette, NavTemplate, Dependon) {
 

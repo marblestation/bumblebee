@@ -44,7 +44,7 @@ define([
     };
 
     var _codes = {};
-    _.each(_.pairs(ApiFeedback.CODES), function (p) {
+    _.each(_.toPairs(ApiFeedback.CODES), function (p) {
       _codes[p[1]] = p[0];
     });
 

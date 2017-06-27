@@ -8,8 +8,8 @@
 define([
     'marionette',
     'backbone',
-    'hbs!./templates/expanding-item-template',
-    'hbs!./templates/expanding-results-container-template',
+    './templates/expanding-item-template.html',
+    './templates/expanding-results-container-template.html',
   ],
 
   function (Marionette,

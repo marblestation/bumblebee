@@ -16,9 +16,9 @@ define([
     'js/components/alerts',
 
     'js/widgets/base/base_widget',
-    'hbs!./templates/widget-view',
-    'hbs!./templates/item-view',
-    'hbs!./templates/empty-view'
+    './templates/widget-view.html',
+    './templates/item-view.html',
+    './templates/empty-view.html'
   ],
   function(
     _,
@@ -433,7 +433,7 @@ define([
           }
         }
 
-        envs = _.pairs(envs).sort(function(a,b) {return a[1] - b[1]});
+        envs = _.toPairs(envs).sort(function(a,b) {return a[1] - b[1]});
         return _.keys(_.object(envs));
       },
 

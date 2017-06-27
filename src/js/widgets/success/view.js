@@ -1,6 +1,6 @@
 define([
   'marionette',
-  'hbs!./success_template'
+  './success_template.html'
 ], function(
   Marionette,
   SuccessTemplate

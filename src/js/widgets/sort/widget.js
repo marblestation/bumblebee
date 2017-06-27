@@ -5,7 +5,7 @@ define(['marionette',
   'backbone',
   'jquery',
   'js/widgets/base/base_widget',
-  'hbs!./templates/sort_template',
+  './templates/sort_template.html',
   'bootstrap',
   'js/components/api_feedback',
   'analytics'

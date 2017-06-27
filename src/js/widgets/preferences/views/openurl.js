@@ -1,6 +1,6 @@
 define([
   "marionette",
-  "hbs!../templates/openurl",
+  "../templates/openurl.html",
   "bootstrap",
   "select2"
 ], function(

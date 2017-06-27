@@ -83,7 +83,7 @@ define([
 
         // try to find/identify sender
         if (widget) {
-          _.each(_.pairs(this.widgets), function(w) {
+          _.each(_.toPairs(this.widgets), function(w) {
             if (w[1] === widget) {
               widgetId = w[0];
               sender = w[1];

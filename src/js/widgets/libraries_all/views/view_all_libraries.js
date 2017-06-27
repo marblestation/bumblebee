@@ -1,9 +1,9 @@
 define([
   "marionette",
-  "hbs!../templates/libraries-list-container",
-  "hbs!../templates/library-item",
-  "hbs!../templates/no-libraries",
-  "hbs!../templates/loading-libraries",
+  "../templates/libraries-list-container.html",
+  "../templates/library-item.html",
+  "../templates/no-libraries.html",
+  "../templates/loading-libraries.html",
   "moment"
 
 

@@ -20,8 +20,8 @@ define([
     'js/components/api_query',
     'js/components/api_feedback',
     'js/widgets/base/base_widget',
-    'hbs!./templates/item-template',
-    'hbs!./templates/results-container-template',
+    './templates/item-template.html',
+    './templates/results-container-template.html',
     'js/mixins/add_stable_index_to_collection',
     './model',
     './paginated_view'

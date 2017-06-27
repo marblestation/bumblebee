@@ -1,7 +1,7 @@
 define([
   'js/page_managers/controller',
   'js/page_managers/one_column_view',
-  'hbs!./public-libraries-page-layout'
+  './public-libraries-page-layout.html'
 ], function (
   PageManagerController,
   PageManagerView,

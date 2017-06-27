@@ -5,15 +5,15 @@ define([
   'js/mixins/form_view_functions',
   'js/widgets/success/view',
   'js/components/api_targets',
-  'hbs!./templates/log-in',
-  'hbs!./templates/register',
-  'hbs!./templates/container',
-  'hbs!./templates/reset-password-1',
-  'hbs!./templates/reset-password-2',
+  './templates/log-in.html',
+  './templates/register.html',
+  './templates/container.html',
+  './templates/reset-password-1.html',
+  './templates/reset-password-2.html',
   'js/components/user',
   'backbone-validation',
   'backbone.stickit',
-  'google-recaptcha'
+  'recaptcha2'
 
 ], function (Marionette,
              BaseWidget,

@@ -253,7 +253,7 @@ define([
         throw new Error("Unknown section: " + section);
       }
 
-      _.each(_.pairs(modules), function(m) {
+      _.each(_.toPairs(modules), function(m) {
         key = m[0], module = m[1];
         if (hasKey(key)) {
           console.warn("Removing (existing) object into [" + section + "]: " + key);
@@ -270,7 +270,7 @@ define([
 
     _checkPrescription: function(modulePrescription) {
       // basic checking
-      _.each(_.pairs(modulePrescription), function(module, idx, list) {
+      _.each(_.toPairs(modulePrescription), function(module, idx, list) {
         var symbolicName = module[0];
         var impl = module[1];
 
@@ -338,11 +338,159 @@ define([
       if (self.debug)
         console.time("startLoading"+sectionName)
 
+      // TODO figure out a better way to load deps
+      // Explicitly listing paths here so that webpack can do it's thing
+
+      switch (sectionName) {
+        case 'controllers': {
+          require.ensure([], function () {
+            try {
+              callback(require([
+                "js/wraps/discovery_mediator",
+                "js/components/query_mediator",
+                "js/bugutils/diagnostics",
+                "js/wraps/alerts_mediator",
+                "js/modules/orcid/module"
+              ])());
+            } catch (e) {
+              errback(e);
+            }
+          }, 'controllers');
+        } break;
+        case 'services': {
+          require.ensure([], function () {
+            try {
+              callback(require([
+                "js/services/api",
+                "js/services/pubsub",
+                "js/apps/discovery/navigator",
+                "js/services/storage",
+                "js/components/history_manager"
+              ])());
+            } catch (e) {
+              errback(e);
+            }
+          }, 'services');
+        } break;
+        case 'objects': {
+          require.ensure([], function () {
+            try {
+              callback(require([
+                "js/components/user",
+                "js/components/session",
+                "discovery.vars",
+                "js/page_managers/master",
+                "js/components/app_storage",
+                "js/components/recaptcha_manager",
+                "js/components/csrf_manager",
+                "js/components/library_controller",
+                "js/components/doc_stash_controller"
+              ])());
+            } catch (e) {
+              errback(e);
+            }
+          }, 'objects');
+        } break;
+        case 'modules': {
+          require.ensure([], function () {
+            try {
+              callback(require([
+                "js/widgets/facet/factory"
+              ])());
+            } catch (e) {
+              errback(e);
+            }
+          }, 'modules');
+        } break;
+        case 'widgets': {
+          require.ensure([], function () {
+            try {
+              callback(require([
+                "js/wraps/landing_page_manager/landing_page_manager",
+                "js/wraps/results_page_manager",
+                "js/wraps/abstract_page_manager/abstract_page_manager",
+                "js/wraps/authentication_page_manager",
+                "js/wraps/user_settings_page_manager/user_page_manager",
+                "js/wraps/orcid_page_manager/orcid_page_manager",
+                "js/wraps/orcid-instructions-page-manager/manager",
+                "js/wraps/libraries_page_manager/libraries_page_manager",
+                "js/wraps/home_page_manager/home_page_manager",
+                "js/wraps/public_libraries_page_manager/public_libraries_manager",
+                "js/wraps/error_page_manager/error_page_manager",
+                "js/widgets/authentication/widget",
+                "js/widgets/user_settings/widget",
+                "js/widgets/preferences/widget",
+                "js/widgets/library_import/widget",
+                "js/widgets/filter_visualizer/widget",
+                "js/widgets/navbar/widget",
+                "js/widgets/user_navbar/widget",
+                "js/widgets/alerts/widget",
+                "js/widgets/classic_form/widget",
+                "js/widgets/search_bar/search_bar_widget",
+                "js/widgets/paper_search_form/widget",
+                "js/widgets/results/widget",
+                "js/widgets/query_info/query_info_widget",
+                "js/widgets/api_query/widget",
+                "js/widgets/export/widget",
+                "js/widgets/sort/widget",
+                "js/wraps/export_dropdown",
+                "js/wraps/visualization_dropdown",
+                "js/wraps/author_network",
+                "js/wraps/paper_network",
+                "js/widgets/wordcloud/widget",
+                "js/widgets/bubble_chart/widget",
+                "js/widgets/metrics/widget",
+                "js/widgets/citation_helper/widget",
+                "js/modules/orcid/widget/widget",
+                "js/wraps/author_facet",
+                "js/wraps/bibgroup_facet",
+                "js/wraps/bibstem_facet",
+                "js/wraps/data_facet",
+                "js/wraps/database_facet",
+                "js/wraps/grants_facet",
+                "js/wraps/keyword_facet",
+                "js/wraps/object_facet",
+                "js/wraps/refereed_facet",
+                "js/wraps/vizier_facet",
+                "js/wraps/graph_tabs",
+                "js/widgets/footer/widget",
+                "js/wraps/pubtype_facet",
+                "js/widgets/abstract/widget",
+                "js/widgets/graphics/widget",
+                "js/wraps/sidebar-graphics-widget",
+                "js/wraps/references",
+                "js/wraps/citations",
+                "js/wraps/coreads",
+                "js/wraps/table_of_contents",
+                "js/widgets/resources/widget",
+                "js/widgets/recommender/widget",
+                "js/wraps/paper_metrics",
+                "js/wraps/paper_export",
+                "js/wraps/abstract_page_library_add/widget",
+                "js/widgets/library_individual/widget",
+                "js/widgets/libraries_all/widget",
+                "js/widgets/library_list/widget"
+              ])());
+            } catch (e) {
+              errback(e);
+            }
+          }, 'widgets');
+        } break;
+        case 'plugins': {
+          require.ensure([], function () {
+            try {
+              callback(require([])());
+            } catch (e) {
+              errback(e);
+            }
+          }, 'plugins');
+        } break;
+      }
+
+
       // start loading the modules
       //console.log('loading', implNames, impls)
-      require.ensure([], function (require) {
-        require(impls, callback, errback);
-      });
+      // require(impls, callback, errback);
 
       return this._setTimeout(defer).promise();
     },
@@ -822,11 +970,11 @@ define([
 
 
     getAllControllers: function() {
-      return _.pairs(this.__controllers.container);
+      return _.toPairs(this.__controllers.container);
     },
 
     getAllModules: function() {
-      return _.pairs(this.__modules.container);
+      return _.toPairs(this.__modules.container);
     },
 
     getAllPlugins: function(key) {
@@ -843,7 +991,7 @@ define([
         done(function(widget) {
           var out = [];
           if (w.length > 1) {
-            out = _.pairs(widget);
+            out = _.toPairs(widget);
           }
           else if (w.length == 1) {
             out = [[w[0], widget]];

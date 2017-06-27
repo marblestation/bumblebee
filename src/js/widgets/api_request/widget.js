@@ -6,8 +6,8 @@ define(['lodash', 'jquery', 'backbone', 'marionette',
   'js/components/api_request',
   'js/components/api_query',
   'js/components/pubsub_events',
-  'hbs!./templates/widget-view',
-  'hbs!./templates/item-view',
+  './templates/widget-view.html',
+  './templates/item-view.html',
   'js/mixins/dependon'
 ],
 
@@ -164,7 +164,7 @@ define(['lodash', 'jquery', 'backbone', 'marionette',
 
         var models = [];
         var vals = {target: 'search', query: '', sender: ''};
-        _.each(_.pairs(vals), function(element, index, list) {
+        _.each(_.toPairs(vals), function(element, index, list) {
           var k = element[0];
           var o = {key: k, value: v};
           if (apiRequest.has(k) && apiRequest.get(k)) {

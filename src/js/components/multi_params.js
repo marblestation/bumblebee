@@ -147,7 +147,7 @@ define(['backbone', 'lodash', 'jquery'], function(Backbone, _, $) {
         whatToSort = this.attributes;
       }
       // sort keys alphabetically
-      var sorted = _.pairs(whatToSort).sort(function(a,b) {return (a[0] > b[0]) ? 1 : (a[0] < b[0] ? -1 : 0)});
+      var sorted = _.toPairs(whatToSort).sort(function(a,b) {return (a[0] > b[0]) ? 1 : (a[0] < b[0] ? -1 : 0)});
 
       // June1:rca - I need to preserve order of values (becuaes of the query modifications/updates) the logic
       // just requires us to be careful and we need order to be preserved when the query is cloned

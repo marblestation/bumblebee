@@ -9,7 +9,9 @@ define([
     'js/components/api_request',
     'js/components/pubsub_events',
     'hbs',
-    'js/components/api_targets'
+    'js/components/api_targets',
+    'js/utils/hbs-helpers',
+    'js/utils/backbone-validation'
     ],
   function(
     _,

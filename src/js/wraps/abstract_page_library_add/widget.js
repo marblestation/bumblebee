@@ -1,7 +1,7 @@
 define([
     "js/widgets/query_info/query_info_widget",
     "js/widgets/base/base_widget",
-    "hbs!./template"
+    "./template.html"
   ],
     function(
        QueryInfoWidget,

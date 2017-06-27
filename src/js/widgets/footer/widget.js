@@ -1,6 +1,6 @@
 define([
   "marionette",
-  "hbs!./footer"
+  "./footer.html"
 ], function(
   Marionette,
   FooterTemplate

@@ -8,8 +8,8 @@ define([
   'lodash',
   'jquery',
   'js/widgets/widget_states',
-  'hbs!js/widgets/base/templates/loading-template',
-  'hbs!js/widgets/base/templates/loading-template-small',
+  'js/widgets/base/templates/loading-template.html',
+  'js/widgets/base/templates/loading-template-small.html',
 
 ], function (
   _,
@@ -112,7 +112,7 @@ define([
      * @param newState
      */
     _saveNewState: function(newState) {
-      var s = _.object(_.filter(_.pairs(newState), function(p) {return !_.isObject(p[1]) && !_.isArray(p[1])}));
+      var s = _.object(_.filter(_.toPairs(newState), function(p) {return !_.isObject(p[1]) && !_.isArray(p[1])}));
       this._states.push(s);
     }
 

@@ -2,10 +2,10 @@ define([
     'marionette',
     'js/widgets/network_vis/network_widget',
     'js/components/api_query_updater',
-    'hbs!./templates/paper-network-data',
-    'hbs!./templates/paper-network-container',
-    'hbs!../widgets/network_vis/templates/not-enough-data-template',
-    'hbs!./templates/paper-network-link-data',
+    './templates/paper-network-data.html',
+    './templates/paper-network-container.html',
+    '../widgets/network_vis/templates/not-enough-data-template.html',
+    './templates/paper-network-link-data.html',
     'js/components/api_targets',
     'bootstrap'
   ],
@@ -288,7 +288,7 @@ define([
           })
           .selectAll("text")
           .data(function (d, i) {
-            var data = _.pairs(d.label);
+            var data = _.toPairs(d.label);
             //take top 4 with highest idf
                 data = _.sortBy(data, function(d){return -d[1]});
                 data = data.slice(0, 5);

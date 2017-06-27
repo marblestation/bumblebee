@@ -469,7 +469,7 @@ define([
           this._tmp = {callOnce: {}};
         }
       }))();
-      _.each(_.pairs(handlers), function(pair) {
+      _.each(_.toPairs(handlers), function(pair) {
         mediator.addFeedbackHandler(pair[0], pair[1]);
       });
       return mediator;

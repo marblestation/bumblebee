@@ -1,8 +1,8 @@
 define([
     'marionette',
     'js/widgets/base/base_widget',
-    'hbs!./templates/dropdown',
-    'hbs!./templates/dropdown-item'
+    './templates/dropdown.html',
+    './templates/dropdown-item.html'
   ],
   function (Marionette, BaseWidget, dropdownTemplate, dropdownItemTemplate) {
 

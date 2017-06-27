@@ -5,7 +5,7 @@ define([
   'marionette',
   'js/components/api_query',
   'js/widgets/base/base_widget',
-  // 'hbs!./templates/resources_template.html',
+  // './templates/resources_template.html.html',
   'js/mixins/link_generator_mixin',
   'bootstrap',
   'js/components/analytics'

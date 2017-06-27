@@ -10,7 +10,7 @@ define([
     'js/mixins/add_stable_index_to_collection',
     'js/mixins/link_generator_mixin',
     'js/mixins/formatter',
-    'hbs!./templates/container-template',
+    './templates/container-template.html',
     'js/mixins/papers_utils',
     'js/modules/orcid/extension',
     'js/mixins/dependon',
@@ -201,7 +201,7 @@ define([
               var hl = highlights[d.id];
               var finalList = [];
               //adding abstract,title, etc highlights to one big list
-              _.each(_.pairs(hl), function (pair) {
+              _.each(_.toPairs(hl), function (pair) {
                 finalList = finalList.concat(pair[1]);
               });
 

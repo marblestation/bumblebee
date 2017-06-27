@@ -1,7 +1,7 @@
 define([
   'js/page_managers/controller',
   'js/page_managers/one_column_view',
-  'hbs!./orcid-instructions',
+  './orcid-instructions.html',
   'bootstrap'
 ], function (
     PageManagerController,

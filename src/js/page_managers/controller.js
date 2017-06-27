@@ -1,8 +1,8 @@
 define([
     'lodash',
     "marionette",
-    "hbs!./templates/results-page-layout",
-    'hbs!./templates/results-control-row',
+    "./templates/results-page-layout.html",
+    './templates/results-control-row.html',
     'js/widgets/base/base_widget',
     './three_column_view',
     './view_mixin',

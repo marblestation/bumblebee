@@ -1,6 +1,6 @@
 define([
     './base_graph',
-    'hbs!./templates/year-graph-legend',
+    './templates/year-graph-legend.html',
     'marionette',
     'jquery-ui'
   ],

@@ -2,8 +2,8 @@ define([
   'js/page_managers/toc_controller',
   'js/page_managers/toc_widget',
   'js/page_managers/three_column_view',
-  'hbs!./libraries-page-layout',
-  'hbs!./libraries-nav'
+  './libraries-page-layout.html',
+  './libraries-nav.html'
 ], function (
   TOCController,
   TOCView,

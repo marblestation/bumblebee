@@ -1,8 +1,8 @@
 define([
   'marionette',
   'js/widgets/base/base_widget',
-  'hbs!./template/navbar',
-  'hbs!./template/feedback',
+  './template/navbar.html',
+  './template/feedback.html',
   'js/components/api_query_updater',
   'js/components/api_query',
   'js/components/api_request',

@@ -11,11 +11,11 @@ define([
       'js/mixins/add_stable_index_to_collection',
       'js/mixins/link_generator_mixin',
       'js/mixins/formatter',
-      'hbs!./templates/container-template',
+      './templates/container-template.html',
       'js/mixins/papers_utils',
       'js/components/api_query',
       'js/components/json_response',
-      'hbs!./templates/empty-template',
+      './templates/empty-template.html',
       'js/modules/orcid/extension'
     ],
 
@@ -68,6 +68,8 @@ define([
           });
 
           this.view.delegateEvents();
+
+
 
           this.view.template = ContainerTemplate;
           this.view.model.set({"mainResults": true}, {silent : true});
@@ -253,7 +255,7 @@ define([
                   var params = response.get('responseHeader.params');
 
                   // name/surname can be empty
-                  params = _.reduce(_.pairs(params), function(p, v) {
+                  params = _.reduce(_.toPairs(params), function(p, v) {
                     if (v[1])
                       p[v[0]] = v[1];
                     return p;

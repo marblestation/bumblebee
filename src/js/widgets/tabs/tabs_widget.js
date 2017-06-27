@@ -5,9 +5,9 @@ define([
   'lodash',
   'marionette',
   'bootstrap',
-  // 'hbs!./templates/tabs_inner',
-  // 'hbs!./templates/tabs_outer',
-  // 'hbs!./templates/tabs_title'],
+  // './templates/tabs_inner.html',
+  // './templates/tabs_outer.html',
+  // './templates/tabs_title.html'],
   ], function (
     _,
     Marionette,

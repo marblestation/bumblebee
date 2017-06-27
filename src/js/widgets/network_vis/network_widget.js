@@ -7,15 +7,15 @@ define([
     "js/components/api_query",
     "js/widgets/base/base_widget",
     "js/components/api_query_updater",
-    "hbs!./templates/author-details-template",
-    "hbs!./templates/container-template",
-    "hbs!./templates/filter-container-template",
-    "hbs!./templates/graph-container-template",
-    "hbs!./templates/group-details-template",
-    'hbs!./templates/not-enough-data-template',
-    'hbs!./templates/network_metadata',
-    'hbs!./templates/loading-template',
-    'hbs!./templates/default-details-template',
+    "./templates/author-details-template.html",
+    "./templates/container-template.html",
+    "./templates/filter-container-template.html",
+    "./templates/graph-container-template.html",
+    "./templates/group-details-template.html",
+    './templates/not-enough-data-template.html',
+    './templates/network_metadata.html',
+    './templates/loading-template.html',
+    './templates/default-details-template.html',
     'bootstrap'
   ],
   function (Marionette,
@@ -581,7 +581,7 @@ define([
             return bibcode.slice(0, 4)
           }).reverse()[0].slice(0, 4);
 
-          allPapers = _.pairs(_.countBy(allPapers));
+          allPapers = _.toPairs(_.countBy(allPapers));
 
           /*
            * compare three variables to get a final score : number of authors in the group,

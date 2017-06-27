@@ -56,7 +56,7 @@ define([
       //or, if all the visible children are selected, but parent is not, select the parent
       //first see if you can find a parent
       var parentId = _.filter(
-        _.pairs(state.facets),
+        _.toPairs(state.facets),
         function(item) { return (item[1].children.indexOf(id) > -1); }
       );
       //if you can, check if all its visible children are selected, and if they are, add it to the

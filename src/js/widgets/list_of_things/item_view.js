@@ -4,7 +4,7 @@ define([
     'js/components/api_request',
     'js/components/api_query',
     'js/widgets/base/base_widget',
-    'hbs!./templates/item-template',
+    './templates/item-template.html',
     'analytics',
     'mathjax'
   ],

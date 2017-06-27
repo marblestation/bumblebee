@@ -4,8 +4,8 @@ define([
     "js/widgets/base/base_widget",
     "./views/library_header",
     "./views/manage_permissions",
-    "hbs!./templates/layout-container",
-    "hbs!./templates/loading-library"
+    "./templates/layout-container.html",
+    "./templates/loading-library.html"
   ],
   function(
     Marionette,

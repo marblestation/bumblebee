@@ -1,7 +1,7 @@
 define([
   "marionette",
-  "hbs!../templates/orcid",
-  "hbs!../templates/orcid-name-row-template"
+  "../templates/orcid.html",
+  "../templates/orcid-name-row-template.html"
 ], function(
     Marionette,
     orcidTemplate,

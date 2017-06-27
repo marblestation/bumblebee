@@ -15,7 +15,7 @@
 
 define([
   'router',
-  'appConfig',
+  'app-config',
   'js/components/application',
   'js/mixins/discovery_bootstrap',
   'es5-shim'

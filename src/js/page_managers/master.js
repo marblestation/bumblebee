@@ -13,8 +13,8 @@ define([
   'js/widgets/base/base_widget',
   'js/components/generic_module',
   'js/page_managers/controller',
-  'hbs!./templates/aria-announcement',
-  'hbs!./templates/master-page-manager',
+  './templates/aria-announcement.html',
+  './templates/master-page-manager.html',
   'marionette',
   'js/mixins/dependon'
 

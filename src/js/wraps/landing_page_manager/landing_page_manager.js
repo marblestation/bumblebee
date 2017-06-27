@@ -1,8 +1,8 @@
 define([
   'js/page_managers/toc_controller',
   'js/page_managers/one_column_view',
-  'hbs!./landing-page-layout',
-  'hbs!./landing-page-nav'
+  './landing-page-layout.html',
+  './landing-page-nav.html'
 ], function (
   PageManagerController,
   PageManagerView,

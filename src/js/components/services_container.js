@@ -64,7 +64,7 @@ define([
     },
 
     getAll: function() {
-      return _.pairs(this._services);
+      return _.toPairs(this._services);
     }
 
   });

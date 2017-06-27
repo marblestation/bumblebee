@@ -2,10 +2,10 @@ define([
   'js/widgets/base/base_widget',
   'js/components/api_request',
   'js/components/api_targets',
-  'hbs!./templates/tab-container',
-  'hbs!./templates/import-view-labs',
-  'hbs!./templates/import-view-classic',
-  'hbs!./templates/success-template',
+  './templates/tab-container.html',
+  './templates/import-view-labs.html',
+  './templates/import-view-classic.html',
+  './templates/success-template.html',
   'bootstrap'
 
 ], function (BaseWidget,
