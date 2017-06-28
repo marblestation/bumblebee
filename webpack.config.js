@@ -1,14 +1,18 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var WebpackVisualizerPlugin = require('webpack-visualizer-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    'discovery': 'js/apps/discovery/main.js'
+    'discovery': 'js/apps/discovery/main.js',
+    'styles': 'styles/sass/manifest.scss'
   },
   output: {
-    path: path.resolve(__dirname, 'src'),
+    path: path.resolve(__dirname, 'src', 'dist'),
+    publicPath: '/dist/',
     filename: '[name].bundle.js',
     chunkFilename: '[name]-bundle.js'
   },
@@ -40,7 +44,7 @@ module.exports = {
       loader: 'handlebars-loader',
       query: {
         knownHelpers: ['compare'],
-        partialResolver: function (partial, callback) {
+        'partialResolver': function (partial, callback) {
           if (partial.indexOf(/.html$/) === -1) {
             partial += '.html';
           }
@@ -53,23 +57,55 @@ module.exports = {
       query: {
         presets: ['babili', 'react']
       }
+    },{
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+        loader: 'file-loader'
+    }, {
+      enforce: 'pre',
+      test: /\.scss$/,
+      exclude: [
+        path.resolve(__dirname, 'node_modules')
+      ],
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader',
+          {
+            loader: 'resolve-url-loader',
+            query: {
+              debug: true,
+              keepQuery: true
+            }
+          // }, {
+          //   loader: 'string-replace-loader',
+          //   query: {
+          //     search: /$ui-icon-font-path: '\.\.\/fonts\/'/,
+          //     replace: '$ui-icon-font-path: \'~jquery-ui-sass/assets/fonts/\''
+          //   }
+          }, 'sass-loader'
+        ]
+      })
     }]
   },
   plugins: [
     new WebpackVisualizerPlugin({
       filename: 'stats.html'
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        return /node_modules/.test(module.resource);
+    new ExtractTextPlugin('styles.css'),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   minChunkCount: Infinity,
+    //   'minChunks': function (module) {
+    //     return /node_modules/.test(module.resource);
+    //   }
+    // }),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      files: {
+        css: ['styles.css']
       }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      minChunks: 2
-    }),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+    })
   ],
   node: {
     fs: 'empty',
