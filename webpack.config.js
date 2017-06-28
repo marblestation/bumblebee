@@ -9,7 +9,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'src'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    chunkFilename: '[name]-bundle.js'
   },
   resolve: {
     extensions: ['.js', '.es6', '.html'],
@@ -32,7 +33,8 @@ module.exports = {
     }
   },
   module: {
-    rules: [{
+    rules: [
+    {
       test: /.html$/,
       exclude: /node_modules/,
       loader: 'handlebars-loader',
@@ -59,16 +61,15 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor.js',
-      'minChunks': function(module){
-        return module.context && module.context.indexOf('node_modules') !== -1;
+      minChunks: function (module) {
+        return /node_modules/.test(module.resource);
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
-      filename: 'common.js',
       minChunks: 2
-    })
+    }),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
   ],
   node: {
     fs: 'empty',
