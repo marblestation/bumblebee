@@ -1,3 +1,4 @@
+'use strict';
 define([
   'react'
 ], function (React) {
@@ -29,6 +30,8 @@ define([
           aria-hidden="true"
         ></i>
       );
+    } else {
+      return null;
     }
   }
 
@@ -44,12 +47,15 @@ define([
       return null;
     }
 
+
     var links = sources.map(function (source) {
+      var onClick = props.onLinkClick.bind(this, source.title);
       return (
         <li key={source.title}>
           <a
             href={source.link}
             target="_blank"
+            onClick={onClick}
             >
             {source.title + ' '}
             <Icons openAccess={source.openAccess} openUrl={source.openUrl} />

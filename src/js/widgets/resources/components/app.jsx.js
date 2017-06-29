@@ -13,7 +13,10 @@ define([
       return (
         <div className="s-right-col-widget-container">
           <LoadingIcon show={this.props.isLoading}/>
-          <FullTextSources sources={this.props.fullTextSources}/>
+          <FullTextSources
+            sources={this.props.fullTextSources}
+            onLinkClick={this.props.onLinkClick}
+          />
           <DataProducts products={this.props.dataProducts}/>
         </div>
       );
@@ -28,5 +31,13 @@ define([
     };
   };
 
-  return ReactRedux.connect(mapStateToProps)(App);
+  var mapDispatchToProps = function (dispatch) {
+    return {
+      onLinkClick: function (text) {
+        return dispatch(actions.emitAnalytics(text));
+      }
+    };
+  };
+
+  return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(App);
 });

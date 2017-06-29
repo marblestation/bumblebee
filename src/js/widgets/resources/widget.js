@@ -36,20 +36,15 @@ define([
 
 
   var ResourcesView = Marionette.ItemView.extend({
-
-    template : ResourcesTemplate,
-
-    className : "resources-widget",
-
-    onRender : function(){
+    template: ResourcesTemplate,
+    className: "resources-widget",
+    onRender: function(){
       this.$('[data-toggle="tooltip"]').tooltip();
     },
-
-    events : {
+    events: {
       "click a" : "emitAnalyticsEvent"
     },
-
-    emitAnalyticsEvent : function(e){
+    emitAnalyticsEvent: function(e){
       analytics('send', 'event', 'interaction', 'full-text-link-followed', $(e.target).text().trim());
     }
   });

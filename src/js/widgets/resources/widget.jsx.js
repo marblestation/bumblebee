@@ -18,9 +18,13 @@ define([
 
   var View = Backbone.View.extend({
     initialize: function (options) {
+
+      // provide this with all the options passed in
       _.assign(this, options);
     },
     render: function () {
+
+      // create provider component, that passes the store to <App>
       ReactDOM.render(
         <ReactRedux.Provider store={this.store}>
           <App/>
@@ -30,6 +34,8 @@ define([
       return this;
     },
     destroy: function () {
+
+      // on destroy, make sure the React DOM is unmounted
       ReactDOM.unmountComponentAtNode(this.el);
     }
   });
@@ -37,9 +43,15 @@ define([
   var Widget = BaseWidget.extend({
     initialize: function (options) {
       this.options = options || {};
+
+      // create thunk middleware, passing in `this` as extra argument
       var middleware = Redux.applyMiddleware(
         ReduxThunk.default.withExtraArgument(this));
+
+      // create the redux store using reducers and applying middleware
       this.store = Redux.createStore(reducers, middleware);
+
+      // create the view passing the store as the only property
       this.view = new View({
         store: this.store
       });
@@ -64,6 +76,7 @@ define([
         .getBeeHive().getObject('User').getUserData('USER_DATA').link_server;
       data = this.parseResourcesData(data);
 
+      // Update the store with the new resources
       this.store.dispatch(actions.updateResources(data));
 
       // Turn off the loading icon

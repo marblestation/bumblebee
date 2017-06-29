@@ -1,3 +1,4 @@
+'use strict';
 define([
   './actions'
 ], function (actions) {
@@ -10,8 +11,15 @@ define([
     };
   };
 
+  /**
+   * Depending on the action type, perform an update to the state
+   *
+   * @param state
+   * @param action
+   * @returns {{dataProducts, fullTextSources, isLoading}|*}
+   */
   var exports = function reducers (state, action) {
-    var state = state ? state : initialState();
+    state = state ? state : initialState();
 
     switch(action.type) {
       case actions.TYPES.DOCUMENTS:

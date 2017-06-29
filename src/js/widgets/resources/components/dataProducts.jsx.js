@@ -1,3 +1,4 @@
+'use strict';
 define([
   'react'
 ], function (React) {
@@ -15,9 +16,14 @@ define([
     }
 
     var links = products.map(function (product) {
+      var onClick = props.onLinkClick.bind(this, product.title);
       return (
         <li key={product.title}>
-          <a href={product.link} target="_blank">{product.title}</a>
+          <a
+            href={product.link}
+            onClick={onClick}
+            target="_blank"
+            >{product.title}</a>
         </li>
       );
     });

@@ -1,16 +1,22 @@
 
 define([
     'jquery',
-    'js/widgets/resources/widget',
+    'enzyme',
+    'es6!js/widgets/resources/widget.jsx',
     'js/widgets/base/base_widget',
     'js/bugutils/minimal_pubsub'
   ],
-  function(
-           $,
-           ResourcesWidget,
-           BaseWidget,
-           MinPubSub
-    ){
+  function($, ResourcesWidget, BaseWidget, MinPubSub){
+
+
+
+
+
+
+
+
+
+
 
   describe("Resources Widget", function(){
 

@@ -176,7 +176,7 @@ require.config({
     // 3rd party dependencies
     // I can't for the life of my figure out how to swap non-minified libs in dev
     // to minified libs in the r.js optimize task
-    react : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-with-addons',
+    react : '//cdnjs.cloudflare.com/ajax/libs/react/15.5.0/react-with-addons',
     'react-dom' : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min',
     jquery : '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min',
     'jquery-ui' : '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min',

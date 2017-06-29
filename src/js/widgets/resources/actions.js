@@ -1,7 +1,9 @@
+'use strict';
 define([
   'underscore',
-  'js/components/api_query'
-], function (_, ApiQuery) {
+  'js/components/api_query',
+  'analytics'
+], function (_, ApiQuery, analytics) {
 
   var FIELDS = ['links_data'];
 
@@ -20,17 +22,23 @@ define([
     };
   };
 
-  actions.loading = function (value) {
+  actions.loading = function () {
     return {
       type: actions.TYPES.IS_LOADING,
       value: true
     }
   };
 
-  actions.loaded = function (value) {
+  actions.loaded = function () {
     return {
       type: actions.TYPES.IS_LOADING,
       value: false
+    }
+  };
+
+  actions.emitAnalytics = function (text) {
+    return function () {
+      analytics('send', 'event', 'interaction', 'full-text-link-followed', text);
     }
   };
 
