@@ -11,7 +11,9 @@ setup:
     - 'exec:npm_install'
     - 'bower:setup'
     - 'copy:discovery_vars'
+    - 'clean:libs'
     - 'copy:libraries'
+    - 'string-replace:libs'
     - 'sass'
     - 'curl:google-analytics'
 
@@ -148,3 +150,9 @@ release:
     - 'copy:keep_original'
     - 'copy:bumblebee_app'
     - 'assemble'
+
+## Normalizers (Fixing inconsistencies in vendor code) NOT FOR BUGFIXES/PATCHES/ETC.
+'string-replace:libs':
+  description: 'Make adjustments to vendor code to fix inconsistent naming/paths'
+  tasks:
+    - 'string-replace:handlebars'

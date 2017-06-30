@@ -154,6 +154,11 @@ require.config({
     '*': {
       'pubsub_service_impl': 'js/services/default_pubsub',
       'analytics_config': 'discovery.vars'
+    },
+    'hbs': {
+      'hbs/handlebars': 'libs/require-handlebars-plugin/hbs/handlebars',
+      'hbs/json2': 'libs/require-handlebars-plugin/hbs/json2',
+      'hbs/underscore': 'libs/require-handlebars-plugin/hbs/underscore'
     }
   },
 
@@ -170,54 +175,96 @@ require.config({
     'router': 'js/apps/discovery/router',
     'analytics': 'js/components/analytics',
 
-    // Opt for Lo-Dash Underscore compatibility build over Underscore.
-    "underscore": "libs/lodash/lodash.compat",
+    //############## VENDOR LIBS ##############
+    'backbone': 'libs/backbone/index',
+    'backbone-validation': 'libs/backbone-validation/index',
+    'backbone.babysitter': 'libs/backbone.babysitter/index',
+    'backbone.stickit': 'libs/backbone.stickit/index',
+    'bootstrap': 'libs/bootstrap-sass/javascripts/index',
+    'bourbon': 'libs/bourbon/index',
+    'chai': 'libs/chai/index',
+    'clipboard': 'libs/clipboard/index',
+    'd3': 'libs/d3/index',
+    'd3-cloud': 'libs/d3-cloud/index',
+    'dsjslib': 'libs/dsjslib/index',
+    'es5-shim': 'libs/es5-shim/index',
+    'es6': 'libs/requirejs-babel/index',
+    'google-analytics': 'libs/googleanalytics/index',
+    'google-recaptcha': 'libs/recaptcha2/index',
+    'hbs': 'libs/require-handlebars-plugin/index',
+    'hbs/handlebars': 'libs/require-handlebars-plugin/hbs/handlebars',
+    'hbs/json2': 'libs/require-handlebars-plugin/hbs/json2',
+    'hbs/underscore': 'libs/require-handlebars-plugin/hbs/underscore',
+    'jquery': 'libs/jquery/index',
+    'jqueryui': 'libs/jqueryui/index',
+    'underscore': 'libs/lodash/index',
+    'marionette': 'libs/marionette/index',
+    'mocha': 'libs/mocha/index',
+    'moment': 'libs/moment/index',
+    'persist-js': 'libs/persist-js/index',
+    'prop-types': 'libs/prop-types/index',
+    'react': 'libs/react/index',
+    'react-backbone': 'libs/react-backbone/index',
+    'react-redux': 'libs/react-redux/index',
+    'react-test-renderer': 'libs/react-test-renderer/index',
+    'react-test-renderer-shallow': 'libs/react-test-renderer-shallow/index',
+    'redux': 'libs/redux/index',
+    'redux-thunk': 'libs/redux-thunk/index',
+    'select2': 'libs/select2/js/index',
+    'sinon': 'libs/sinon/index',
+    'sprintf': 'libs/sprintf/index',
+    'text': 'libs/text/index'
+    //############## VENDOR LIBS ##############
 
-    // 3rd party dependencies
-    // I can't for the life of my figure out how to swap non-minified libs in dev
-    // to minified libs in the r.js optimize task
-    react : '//cdnjs.cloudflare.com/ajax/libs/react/15.5.0/react-with-addons',
-    'react-dom' : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min',
-    jquery : '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min',
-    'jquery-ui' : '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min',
-     es6: 'libs/requirejs-babel-plugin/es6',
-     babel: 'libs/requirejs-babel-plugin/babel-5.8.34.min',
-    'redux' : 'libs/redux/index',
-    'react-redux' : 'libs/react-redux/index',
-    'react-backbone': 'libs/react-backbone/react.backbone',
-    'redux-thunk' : 'libs/redux-thunk/index',
-    'backbone': 'libs/backbone/backbone',
-    'hbs': 'libs/require-handlebars-plugin/hbs',
-    'async': 'libs/requirejs-plugins/async',
-    'marionette' : 'libs/marionette/backbone.marionette',
-    'backbone.wreqr' : 'libs/backbone.wreqr/lib/backbone.wreqr',
-    'backbone.eventbinder' : 'libs/backbone.eventbinder/backbone.eventbinder',
-    'backbone.babysitter' : 'libs/backbone.babysitter/backbone.babysitter',
-    'bootstrap': 'libs/bootstrap/bootstrap',
-    'd3':'libs/d3/d3',
-    'd3-cloud' : 'libs/d3-cloud/d3.layout.cloud',
-    'cache': 'libs/dsjslib/lib/Cache',
-    'jquery-querybuilder': 'libs/jQuery-QueryBuilder/query-builder',
-    // for development use
-    //'google-analytics': "//www.google-analytics.com/analytics_debug",
-    'google-analytics': "//www.google-analytics.com/analytics",
-    'google-recaptcha' : '//www.google.com/recaptcha/api.js?&render=explicit&onload=onRecaptchaLoad',
-    'persist-js': 'libs/persist-js/src/persist',
-    'backbone-validation': 'libs/backbone-validation/backbone-validation',
-    'backbone.stickit' : 'libs/backbone.stickit/backbone.stickit',
-    // only for diagnostics/debugging/testing - wont get loaded otherwise
-    'sprintf': 'libs/sprintf/sprintf',
-    'chai': '../bower_components/chai/chai',
-    'sinon': '../bower_components/sinon/index',
-    //have to add this for tests
-    'dev-react' : '../bower_components/react/react-with-addons',
-    'filesaver' : 'libs/FileSaver/FileSaver',
-    'select2' : 'libs/select2/select2',
-    'squire': '../bower_components/squire/src/Squire',
-    'clipboard': 'libs/clipboard/clipboard',
-    'es5-shim' : 'libs/es5-shim/es5-shim',
-    'mathjax' : '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML&amp;delayStartupUntil=configured',
-    'moment' : 'libs/momentjs/moment'
+
+
+    // // Opt for Lo-Dash Underscore compatibility build over Underscore.
+    // "underscore": "libs/lodash/lodash.compat",
+    //
+    // // 3rd party dependencies
+    // // I can't for the life of my figure out how to swap non-minified libs in dev
+    // // to minified libs in the r.js optimize task
+    // react : '//cdnjs.cloudflare.com/ajax/libs/react/15.5.0/react-with-addons',
+    // 'react-dom' : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min',
+    // jquery : '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min',
+    // 'jquery-ui' : '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min',
+    //  es6: 'libs/requirejs-babel-plugin/es6',
+    //  babel: 'libs/requirejs-babel-plugin/babel-5.8.34.min',
+    // 'redux' : 'libs/redux/index',
+    // 'react-redux' : 'libs/react-redux/index',
+    // 'react-backbone': 'libs/react-backbone/react.backbone',
+    // 'redux-thunk' : 'libs/redux-thunk/index',
+    // 'backbone': 'libs/backbone/backbone',
+    // 'hbs': 'libs/require-handlebars-plugin/hbs',
+    // 'async': 'libs/requirejs-plugins/async',
+    // 'marionette' : 'libs/marionette/backbone.marionette',
+    // 'backbone.wreqr' : 'libs/backbone.wreqr/lib/backbone.wreqr',
+    // 'backbone.eventbinder' : 'libs/backbone.eventbinder/backbone.eventbinder',
+    // 'backbone.babysitter' : 'libs/backbone.babysitter/backbone.babysitter',
+    // 'bootstrap': 'libs/bootstrap/bootstrap',
+    // 'd3':'libs/d3/d3',
+    // 'd3-cloud' : 'libs/d3-cloud/d3.layout.cloud',
+    // 'cache': 'libs/dsjslib/lib/Cache',
+    // 'jquery-querybuilder': 'libs/jQuery-QueryBuilder/query-builder',
+    // // for development use
+    // //'google-analytics': "//www.google-analytics.com/analytics_debug",
+    // 'google-analytics': "//www.google-analytics.com/analytics",
+    // 'google-recaptcha' : '//www.google.com/recaptcha/api.js?&render=explicit&onload=onRecaptchaLoad',
+    // 'persist-js': 'libs/persist-js/src/persist',
+    // 'backbone-validation': 'libs/backbone-validation/backbone-validation',
+    // 'backbone.stickit' : 'libs/backbone.stickit/backbone.stickit',
+    // // only for diagnostics/debugging/testing - wont get loaded otherwise
+    // 'sprintf': 'libs/sprintf/sprintf',
+    // 'chai': '../bower_components/chai/chai',
+    // 'sinon': '../bower_components/sinon/index',
+    // //have to add this for tests
+    // 'dev-react' : '../bower_components/react/react-with-addons',
+    // 'select2' : 'libs/select2/select2',
+    // 'squire': '../bower_components/squire/src/Squire',
+    // 'clipboard': 'libs/clipboard/clipboard',
+    // 'es5-shim' : 'libs/es5-shim/es5-shim',
+    // 'mathjax' : '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML&amp;delayStartupUntil=configured',
+    // 'moment' : 'libs/momentjs/moment'
 
   },
 
@@ -280,6 +327,10 @@ require.config({
       exports: 'Persist'
     },
 
+    'handlebars': {
+      exports: 'Handlebars'
+    },
+
     mathjax: {
         exports: "MathJax",
         init: function () {
@@ -303,11 +354,7 @@ require.config({
 
   callback: function() {
 
-    require([
-      'hbs/handlebars'
-              ], function(
-        Handlebars
-    ) {
+    require(['handlebars'], function (Handlebars) {
 
       // register helpers
       // http://doginthehat.com.au/2012/02/comparison-block-helper-for-handlebars-templates/#comment-44

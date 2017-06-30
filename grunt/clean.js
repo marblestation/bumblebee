@@ -13,5 +13,8 @@ module.exports = {
       './bower_components',
       'test/reports'
     ]
+  },
+  libs: {
+    src: 'src/libs'
   }
 };

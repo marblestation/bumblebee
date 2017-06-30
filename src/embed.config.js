@@ -187,7 +187,7 @@ require.config({
   },
 
   callback: function() {
-    require(['hbs/handlebars'], function(Handlebars) {
+    require(['handlebars'], function(Handlebars) {
       // register helpers
       // http://doginthehat.com.au/2012/02/comparison-block-helper-for-handlebars-templates/#comment-44
       //eg  (where current is a variable): {{#compare current 1 operator=">"}}
