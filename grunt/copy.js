@@ -7,7 +7,7 @@
 module.exports = function (grunt) {
   var path = require('path');
   var defaultJsRename = function (dest, src) {
-    return path.join(dest, path.dirname(src), 'index.js');
+    return path.join(dest, path.dirname(src), 'main.js');
   };
   return {
     libraries: {
@@ -39,6 +39,24 @@ module.exports = function (grunt) {
           rename: defaultJsRename
         },
 
+        // backbone.marionette
+        {
+          cwd: 'node_modules/backbone.marionette/lib',
+          src: 'backbone.marionette.js',
+          dest: 'src/libs/backbone.marionette',
+          expand: true,
+          rename: defaultJsRename
+        },
+
+        // backbone.radio
+        {
+          cwd: 'node_modules/backbone.radio/build',
+          src: 'backbone.radio.js',
+          dest: 'src/libs/backbone.radio',
+          expand: true,
+          rename: defaultJsRename
+        },
+
         // backbone.stickit
         {
           cwd: 'node_modules/backbone.stickit',
@@ -60,8 +78,8 @@ module.exports = function (grunt) {
           dest: 'src/libs/bootstrap-sass',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('bootstrap.js', 'index.js');
-            src = src.replace('_bootstrap.scss', 'index.scss');
+            src = src.replace('bootstrap.js', 'main.js');
+            src = src.replace('_bootstrap.scss', 'main.scss');
             return path.join(dest, src);
           }
         },
@@ -71,7 +89,8 @@ module.exports = function (grunt) {
           cwd: 'node_modules/bourbon',
           src: 'index.js',
           dest: 'src/libs/bourbon',
-          expand: true
+          expand: true,
+          rename: defaultJsRename
         },
 
         // chai
@@ -81,7 +100,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/chai',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('chai.js', 'index.js');
+            src = src.replace('chai.js', 'main.js');
             return path.join(dest, src);
           }
         },
@@ -109,7 +128,8 @@ module.exports = function (grunt) {
           cwd: 'node_modules/d3-cloud',
           src: 'index.js',
           dest: 'src/libs/d3-cloud',
-          expand: true
+          expand: true,
+          rename: defaultJsRename
         },
 
         // dsjslib.cache
@@ -137,7 +157,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/font-awesome-sass',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('_font-awesome.scss', 'index.scss');
+            src = src.replace('_font-awesome.scss', 'main.scss');
             return path.join(dest, src);
           }
         },
@@ -149,6 +169,18 @@ module.exports = function (grunt) {
           dest: 'src/libs/googleanalytics',
           expand: true,
           rename: defaultJsRename
+        },
+
+        // handlebars
+        {
+          cwd: 'node_modules/handlebars/dist/amd',
+          src: '**/*',
+          dest: 'src/libs/handlebars',
+          expand: true,
+          rename: function (dest, src) {
+            src = src.replace(/^handlebars.js$/, 'main.js');
+            return path.join(dest, src);
+          }
         },
 
         // jquery
@@ -167,8 +199,8 @@ module.exports = function (grunt) {
           dest: 'src/libs/jqueryui',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('jquery-ui.js', 'index.js');
-            src = src.replace('jquery-ui.css', 'index.css');
+            src = src.replace('jquery-ui.js', 'main.js');
+            src = src.replace('jquery-ui.css', 'main.css');
             return path.join(dest, src);
           }
         },
@@ -176,12 +208,16 @@ module.exports = function (grunt) {
         // jQuery-QueryBuilder
         {
           cwd: 'node_modules/jQuery-QueryBuilder/dist',
-          src: ['js/query-builder.js', 'scss/default.scss', 'scss/plugins/*'],
+          src: [
+            'js/query-builder.standalone.js',
+            'scss/default.scss',
+            'scss/plugins/*'
+          ],
           dest: 'src/libs/jquery-querybuilder',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('js/query-builder.js', 'index.js');
-            src = src.replace('default.scss', 'index.scss');
+            src = src.replace('js/query-builder.standalone.js', 'main.js');
+            src = src.replace('default.scss', 'main.scss');
             src = src.replace('scss/', '');
             return path.join(dest, src);
           }
@@ -194,14 +230,6 @@ module.exports = function (grunt) {
           dest: 'src/libs/lodash',
           expand: true,
           rename: defaultJsRename
-        },
-
-        // marionette
-        {
-          cwd: 'node_modules/marionette',
-          src: 'index.js',
-          dest: 'src/libs/marionette',
-          expand: true
         },
 
         // mathjax
@@ -220,7 +248,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/mocha',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('mocha.js', 'index.js');
+            src = src.replace('mocha.js', 'main.js');
             return path.join(dest, src);
           }
         },
@@ -236,7 +264,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/moment',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('moment.js', 'index.js');
+            src = src.replace(/^moment.js$/, 'main.js');
             return path.join(dest, src);
           }
         },
@@ -262,7 +290,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/prop-types',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('factory.js', 'index.js');
+            src = src.replace('factory.js', 'main.js');
             return path.join(dest, src);
           }
         },
@@ -310,7 +338,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/react-test-renderer/',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('ReactTestRenderer.js', 'index.js');
+            src = src.replace('ReactTestRenderer.js', 'main.js');
             return path.join(dest, src);
           }
         },
@@ -322,7 +350,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/react-test-renderer-shallow/',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('ReactShallowRenderer.js', 'index.js');
+            src = src.replace('ReactShallowRenderer.js', 'main.js');
             return path.join(dest, src);
           }
         },
@@ -332,7 +360,8 @@ module.exports = function (grunt) {
           cwd: 'node_modules/recaptcha2',
           src: 'index.js',
           dest: 'src/libs/recaptcha2',
-          expand: true
+          expand: true,
+          rename: defaultJsRename
         },
 
         // redux
@@ -355,19 +384,11 @@ module.exports = function (grunt) {
 
         // require-handlebars-plugin
         {
-          cwd: 'node_modules/require-handlebars-plugin',
-          src: [
-            'hbs.js',
-            'hbs/handlebars.js',
-            'hbs/json2.js',
-            'hbs/underscore.js'
-          ],
-          dest: 'src/libs/require-handlebars-plugin',
+          cwd: 'node_modules/requirejs-handlebars',
+          src: 'hb.js',
+          dest: 'src/libs/requirejs-handlebars',
           expand: true,
-          rename: function (dest, src) {
-            src = src.replace('hbs.js', 'index.js');
-            return path.join(dest, src);
-          }
+          rename: defaultJsRename
         },
 
         // requirejs
@@ -382,21 +403,25 @@ module.exports = function (grunt) {
         // requirejs-babel
         {
           cwd: 'node_modules/requirejs-babel',
-          src: 'es6.js',
+          src: ['es6.js', 'babel*.js'],
           dest: 'src/libs/requirejs-babel',
           expand: true,
-          rename: defaultJsRename
+          rename: function (dest, src) {
+            src = src.replace(/babel.*?\.js/, 'babel.js');
+            src = src.replace('es6.js', 'main.js');
+            return path.join(dest, src);
+          }
         },
 
         // select2
         {
-          cwd: 'node_modules/select2/dist',
-          src: ['js/select2.full.js', 'css/select2.css'],
+          cwd: 'node_modules/select2/src',
+          src: ['js/**/*', 'scss/**/*'],
           dest: 'src/libs/select2',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('select2.full.js', 'index.js');
-            src = src.replace('select2.css', 'index.css');
+            src = src.replace('jquery.select2.js', 'main.js');
+            src = src.replace('core.scss', 'main.scss');
             return path.join(dest, src);
           }
         },
@@ -408,7 +433,7 @@ module.exports = function (grunt) {
           dest: 'src/libs/sinon',
           expand: true,
           rename: function (dest, src) {
-            src = src.replace('sinon.js', 'index.js');
+            src = src.replace('sinon.js', 'main.js');
             return path.join(dest, src);
           }
         },

@@ -13,6 +13,8 @@ require.config({
 
   }()),
 
+  nodeIdCompat: true,
+  // enforceDefine: true,
 
   //this will be overridden in the compiled file
   waitSeconds: 30,
@@ -22,8 +24,8 @@ require.config({
   config: {
 
   'es6': {
-              'modules': undefined,
-      },
+    'modules': undefined,
+  },
 
     'js/widgets/export/widget': {
       url: 'http://adsabs-classic-exports-service.elasticbeanstalk.com',
@@ -117,7 +119,7 @@ require.config({
         DatabaseFacet: 'js/wraps/database_facet',
         GrantsFacet: 'js/wraps/grants_facet',
         KeywordFacet: 'js/wraps/keyword_facet',
-		    ObjectFacet: 'js/wraps/object_facet',
+        ObjectFacet: 'js/wraps/object_facet',
         RefereedFacet: 'js/wraps/refereed_facet',
         VizierFacet: 'js/wraps/vizier_facet',
         GraphTabs : 'js/wraps/graph_tabs',
@@ -153,13 +155,60 @@ require.config({
   map: {
     '*': {
       'pubsub_service_impl': 'js/services/default_pubsub',
-      'analytics_config': 'discovery.vars',
-      // 'hbs': 'libs/require-handlebars-plugin/index'
-    },
-    'hbs': {
-      'hbs': 'libs/require-handlebars-plugin/hbs'
+      'analytics_config': 'discovery.vars'
     }
   },
+
+  packages:  [
+    ['babel',                       'libs/requirejs-babel', 'babel'],
+    ['backbone',                    'libs/backbone'],
+    ['backbone-validation',         'libs/backbone-validation'],
+    ['backbone.babysitter',         'libs/backbone.babysitter'],
+    ['backbone.radio',              'libs/backbone.radio'],
+    ['backbone.stickit',            'libs/backbone.stickit'],
+    ['bootstrap',                   'libs/bootstrap-sass/javascripts'],
+    ['bourbon',                     'libs/bourbon'],
+    ['chai',                        'libs/chai'],
+    ['clipboard',                   'libs/clipboard'],
+    ['d3',                          'libs/d3'],
+    ['d3-cloud',                    'libs/d3-cloud'],
+    ['cache',                       'libs/cache'],
+    ['es5-shim',                    'libs/es5-shim'],
+    ['es6',                         'libs/requirejs-babel'],
+    ['google-analytics',            'libs/googleanalytics'],
+    ['google-recaptcha',            'libs/recaptcha2'],
+    ['handlebars',                  'libs/handlebars'],
+    ['hbs',                         'libs/requirejs-handlebars'],
+    ['jquery',                      'libs/jquery'],
+    ['jquery-ui',                   'libs/jqueryui'],
+    ['jquery-querybuilder',         'libs/jquery-querybuilder'],
+    ['underscore',                  'libs/lodash'],
+    ['marionette',                  'libs/backbone.marionette'],
+    ['mathjax',                     'libs/mathjax'],
+    ['mocha',                       'libs/mocha'],
+    ['moment',                      'libs/moment'],
+    ['persist-js',                  'libs/persist-js'],
+    ['prop-types',                  'libs/prop-types'],
+    ['react',                       'libs/react'],
+    ['react-backbone',              'libs/react-backbone'],
+    ['react-dom',                   'libs/react-dom'],
+    ['react-redux',                 'libs/react-redux'],
+    ['react-test-renderer',         'libs/react-test-renderer'],
+    ['react-test-renderer-shallow', 'libs/react-test-renderer-shallow'],
+    ['redux',                       'libs/redux'],
+    ['redux-thunk',                 'libs/redux-thunk'],
+    ['select2',                     'libs/select2/js'],
+    ['select2/matcher',             'libs/select2/js/select2/compat', 'matcher'],
+    ['sinon',                       'libs/sinon'],
+    ['sprintf',                     'libs/sprintf'],
+    ['text',                        'libs/text']
+  ].map(function (arr) {
+    return {
+      name: arr[0],
+      location: arr[1],
+      main: arr[2]
+    };
+  }),
 
   paths: {
 
@@ -175,44 +224,45 @@ require.config({
     'analytics': 'js/components/analytics',
 
     //############## VENDOR LIBS ##############
-    'backbone': 'libs/backbone/index',
-    'backbone-validation': 'libs/backbone-validation/index',
-    'backbone.babysitter': 'libs/backbone.babysitter/index',
-    'backbone.stickit': 'libs/backbone.stickit/index',
-    'bootstrap': 'libs/bootstrap-sass/javascripts/index',
-    'bourbon': 'libs/bourbon/index',
-    'chai': 'libs/chai/index',
-    'clipboard': 'libs/clipboard/index',
-    'd3': 'libs/d3/index',
-    'd3-cloud': 'libs/d3-cloud/index',
-    'cache': 'libs/cache/index',
-    'es5-shim': 'libs/es5-shim/index',
-    'es6': 'libs/requirejs-babel/index',
-    'google-analytics': 'libs/googleanalytics/index',
-    'google-recaptcha': 'libs/recaptcha2/index',
-    'hbs': 'libs/require-handlebars-plugin/index',
-    'jquery': 'libs/jquery/index',
-    'jquery-ui': 'libs/jqueryui/index',
-    'jquery-querybuilder': 'libs/jquery-querybuilder/index',
-    'underscore': 'libs/lodash/index',
-    'marionette': 'libs/marionette/index',
-    'mathjax': 'libs/mathjax/index',
-    'mocha': 'libs/mocha/index',
-    'moment': 'libs/moment/index',
-    'persist-js': 'libs/persist-js/index',
-    'prop-types': 'libs/prop-types/index',
-    'react': 'libs/react/index',
-    'react-backbone': 'libs/react-backbone/index',
-    'react-dom': 'libs/react-dom/index',
-    'react-redux': 'libs/react-redux/index',
-    'react-test-renderer': 'libs/react-test-renderer/index',
-    'react-test-renderer-shallow': 'libs/react-test-renderer-shallow/index',
-    'redux': 'libs/redux/index',
-    'redux-thunk': 'libs/redux-thunk/index',
-    'select2': 'libs/select2/js/index',
-    'sinon': 'libs/sinon/index',
-    'sprintf': 'libs/sprintf/index',
-    'text': 'libs/text/index'
+    // 'babel': 'libs/requirejs-babel/babel',
+    // 'backbone': 'libs/backbone',
+    // 'backbone-validation': 'libs/backbone-validation',
+    // 'backbone.babysitter': 'libs/backbone.babysitter',
+    // 'backbone.stickit': 'libs/backbone.stickit',
+    // 'bootstrap': 'libs/bootstrap-sass/javascripts',
+    // 'bourbon': 'libs/bourbon',
+    // 'chai': 'libs/chai',
+    // 'clipboard': 'libs/clipboard',
+    // 'd3': 'libs/d3',
+    // 'd3-cloud': 'libs/d3-cloud',
+    // 'cache': 'libs/cache',
+    // 'es5-shim': 'libs/es5-shim',
+    // 'es6': 'libs/requirejs-babel',
+    // 'google-analytics': 'libs/googleanalytics',
+    // 'google-recaptcha': 'libs/recaptcha2',
+    // 'hbs': 'libs/require-handlebars-plugin',
+    // 'jquery': 'libs/jquery',
+    // 'jquery-ui': 'libs/jqueryui',
+    // 'jquery-querybuilder': 'libs/jquery-querybuilder',
+    // 'underscore': 'libs/lodash',
+    // 'marionette': 'libs/marionette',
+    // 'mathjax': 'libs/mathjax',
+    // 'mocha': 'libs/mocha',
+    // 'moment': 'libs/moment',
+    // 'persist-js': 'libs/persist-js',
+    // 'prop-types': 'libs/prop-types',
+    // 'react': 'libs/react/index',
+    // 'react-backbone': 'libs/react-backbone',
+    // 'react-dom': 'libs/react-dom',
+    // 'react-redux': 'libs/react-redux',
+    // 'react-test-renderer': 'libs/react-test-renderer',
+    // 'react-test-renderer-shallow': 'libs/react-test-renderer-shallow',
+    // 'redux': 'libs/redux',
+    // 'redux-thunk': 'libs/redux-thunk',
+    // 'select2': 'libs/select2/js',
+    // 'sinon': 'libs/sinon',
+    // 'sprintf': 'libs/sprintf',
+    // 'text': 'libs/text'
     //############## VENDOR LIBS ##############
 
 
@@ -267,10 +317,10 @@ require.config({
 
   },
 
-  hbs : {
-    'templateExtension' : 'html',
-    helpers: false
-  },
+  // hbs : {
+  //   'templateExtension' : 'html',
+  //   helpers: false
+  // },
 
 
   shim: {
@@ -307,7 +357,14 @@ require.config({
 
     'jquery-querybuilder': {
       deps: ['jquery']
+    },
 
+    'jquery-mousewheel': {
+      exports: 'jquery'
+    },
+
+    'analytics': {
+      deps: ['jquery']
     },
 
     'd3-cloud' : {
@@ -318,6 +375,11 @@ require.config({
       deps: ['jquery']
     },
 
+    'select2': {
+      deps: ['jquery'],
+      exports: 'jquery'
+    },
+
     'sprintf': {
       exports: 'sprintf'
     },
@@ -326,34 +388,32 @@ require.config({
       exports: 'Persist'
     },
 
-    'handlebars': {
-      exports: 'Handlebars'
-    },
-
     mathjax: {
-        exports: "MathJax",
-        init: function () {
-          MathJax.Hub.Config({
-            HTML: ["input/TeX","output/HTML-CSS"],
-            TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
-              equationNumbers: { autoNumber: "AMS" } },
-            extensions: ["tex2jax.js"],
-            jax: ["input/TeX","output/HTML-CSS"],
-            tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-              processEscapes: true },
-            "HTML-CSS": { availableFonts: ["TeX"],
-              linebreaks: { automatic: true } }
-          });
-          MathJax.Hub.Startup.onload();
-          return MathJax;
-        }
+      exports: "MathJax",
+      init: function () {
+        MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+            equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true },
+          "HTML-CSS": { availableFonts: ["TeX"],
+            linebreaks: { automatic: true } }
+        });
+        MathJax.Hub.Startup.onload();
+        return MathJax;
+      }
     }
   },
 
   callback: function() {
 
-    require(['hbs'], function (Handlebars) {
+    require(['handlebars'], function (Handlebars) {
+    debugger;
+
       if (Handlebars.get) {
         Handlebars = Handlebars.get();
       }
@@ -425,6 +485,5 @@ require.config({
         }
       });
     });
-
   }
 });

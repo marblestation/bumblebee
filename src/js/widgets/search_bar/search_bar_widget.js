@@ -16,7 +16,7 @@ define([
       'js/mixins/dependon',
       'analytics',
       'select2',
-      'select2/compat/matcher'
+      'select2/matcher'
     ],
     function (
         Marionette,

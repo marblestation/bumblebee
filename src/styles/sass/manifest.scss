@@ -1,9 +1,9 @@
 
 $fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.6.3/fonts";  // for referencing Bootstrap CDN font files directly
 
-@import '../../libs/font-awesome-sass/stylesheets/index';
-@import '../../libs/jqueryui/index.css';
-@import '../../libs/select2/css/index';
+@import '../../libs/font-awesome-sass/stylesheets/main';
+@import '../../libs/jqueryui/main.css';
+@import '../../libs/select2/scss/main';
 
 
 
@@ -13,7 +13,7 @@ $fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.6.3/fonts";  // 
 @import 'ads-sass/bootstrap-variables';
 
 /* Import Bootstrap source */
-@import '../../libs/bootstrap-sass/stylesheets/index';
+@import '../../libs/bootstrap-sass/stylesheets/main';
 
 
 /* Import stuff that should be accessible by modules below */

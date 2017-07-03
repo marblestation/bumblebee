@@ -8,7 +8,7 @@ define([
     'js/components/api_query',
     'js/components/api_request',
     'js/components/pubsub_events',
-    'hbs',
+    'handlebars',
     'js/components/api_targets'
     ],
   function(

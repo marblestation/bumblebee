@@ -9,11 +9,12 @@ setup:
   description: 'Setup the development environment'
   tasks:
     - 'exec:npm_install'
-    - 'bower:setup'
     - 'copy:discovery_vars'
     - 'clean:libs'
     - 'copy:libraries'
-    - 'exec:convert_cache'
+    - 'babel:libs'
+    - 'string-replace:d3_cloud'
+    - 'exec:amdify'
     - 'sass'
     - 'curl:google-analytics'
 

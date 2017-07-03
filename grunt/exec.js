@@ -17,7 +17,16 @@ module.exports = {
   npm_install: {
     cmd: 'npm install --no-package-lock --no-shrinkwrap'
   },
-  convert_cache: {
-    cmd: 'node node_modules/.bin/r.js -convert src/libs/cache src/libs/cache'
+  amdify: {
+    cmd: [
+      'node node_modules/.bin/r.js -convert src/libs/cache src/libs/cache',
+      'node node_modules/.bin/r.js -convert src/libs/moment src/libs/moment',
+      'node node_modules/.bin/r.js -convert src/libs/d3-cloud src/libs/d3-cloud'
+    ].join(';')
+  },
+  libs: {
+    cmd: [
+      'grunt volo:add:-f:-nostamp:-amd:jashkenas/backbone'
+    ].join(';')
   }
 };

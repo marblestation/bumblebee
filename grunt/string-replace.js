@@ -18,5 +18,17 @@ module.exports = {
         replacement: 'data-main="./bumblebee_app.js"'
       }]
     }
+  },
+  d3_cloud: {
+    files: [{
+      src: 'src/libs/d3-cloud/main.js',
+      dest: 'src/libs/d3-cloud/main.js'
+    }],
+    options: {
+      replacements: [{
+        pattern: 'require("d3-dispatch")',
+        replacement: 'require("d3")'
+      }]
+    }
   }
 };
