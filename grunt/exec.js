@@ -5,10 +5,6 @@
  * @module grunt/exec
  */
 module.exports = {
-  // this is necessary to make the library AMD compatible
-  convert_dsjslib: {
-    cmd: 'node node_modules/requirejs/bin/r.js -convert src/libs/dsjslib src/libs/dsjslib'
-  },
   latest_commit: {
     cmd: 'git rev-parse --short=7 --verify HEAD | cat > git-latest-commit'
   },
@@ -20,5 +16,8 @@ module.exports = {
   },
   npm_install: {
     cmd: 'npm install --no-package-lock --no-shrinkwrap'
+  },
+  convert_cache: {
+    cmd: 'node node_modules/.bin/r.js -convert src/libs/cache src/libs/cache'
   }
 };

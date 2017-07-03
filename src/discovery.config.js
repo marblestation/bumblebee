@@ -153,12 +153,11 @@ require.config({
   map: {
     '*': {
       'pubsub_service_impl': 'js/services/default_pubsub',
-      'analytics_config': 'discovery.vars'
+      'analytics_config': 'discovery.vars',
+      // 'hbs': 'libs/require-handlebars-plugin/index'
     },
     'hbs': {
-      'hbs/handlebars': 'libs/require-handlebars-plugin/hbs/handlebars',
-      'hbs/json2': 'libs/require-handlebars-plugin/hbs/json2',
-      'hbs/underscore': 'libs/require-handlebars-plugin/hbs/underscore'
+      'hbs': 'libs/require-handlebars-plugin/hbs'
     }
   },
 
@@ -186,25 +185,25 @@ require.config({
     'clipboard': 'libs/clipboard/index',
     'd3': 'libs/d3/index',
     'd3-cloud': 'libs/d3-cloud/index',
-    'dsjslib': 'libs/dsjslib/index',
+    'cache': 'libs/cache/index',
     'es5-shim': 'libs/es5-shim/index',
     'es6': 'libs/requirejs-babel/index',
     'google-analytics': 'libs/googleanalytics/index',
     'google-recaptcha': 'libs/recaptcha2/index',
     'hbs': 'libs/require-handlebars-plugin/index',
-    'hbs/handlebars': 'libs/require-handlebars-plugin/hbs/handlebars',
-    'hbs/json2': 'libs/require-handlebars-plugin/hbs/json2',
-    'hbs/underscore': 'libs/require-handlebars-plugin/hbs/underscore',
     'jquery': 'libs/jquery/index',
-    'jqueryui': 'libs/jqueryui/index',
+    'jquery-ui': 'libs/jqueryui/index',
+    'jquery-querybuilder': 'libs/jquery-querybuilder/index',
     'underscore': 'libs/lodash/index',
     'marionette': 'libs/marionette/index',
+    'mathjax': 'libs/mathjax/index',
     'mocha': 'libs/mocha/index',
     'moment': 'libs/moment/index',
     'persist-js': 'libs/persist-js/index',
     'prop-types': 'libs/prop-types/index',
     'react': 'libs/react/index',
     'react-backbone': 'libs/react-backbone/index',
+    'react-dom': 'libs/react-dom/index',
     'react-redux': 'libs/react-redux/index',
     'react-test-renderer': 'libs/react-test-renderer/index',
     'react-test-renderer-shallow': 'libs/react-test-renderer-shallow/index',
@@ -354,8 +353,10 @@ require.config({
 
   callback: function() {
 
-    require(['handlebars'], function (Handlebars) {
-
+    require(['hbs'], function (Handlebars) {
+      if (Handlebars.get) {
+        Handlebars = Handlebars.get();
+      }
       // register helpers
       // http://doginthehat.com.au/2012/02/comparison-block-helper-for-handlebars-templates/#comment-44
 

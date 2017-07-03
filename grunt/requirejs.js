@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         wrap: true,
         preserveLicenseComments: false,
         generateSourceMaps: false,
-        stubModules : ['babel', 'es6'],
+        stubModules : ['es6'],
         optimize: 'uglify2',
         paths : {
           //use cdns for major libs

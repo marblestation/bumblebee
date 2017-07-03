@@ -112,12 +112,13 @@ module.exports = function (grunt) {
           expand: true
         },
 
-        // dsjslib
+        // dsjslib.cache
         {
           cwd: 'node_modules/dsjslib/lib',
-          src: '**/*.js',
-          dest: 'src/libs/dsjslib',
-          expand: true
+          src: 'Cache.js',
+          dest: 'src/libs/cache',
+          expand: true,
+          rename: defaultJsRename
         },
 
         // es5-shim
@@ -172,6 +173,20 @@ module.exports = function (grunt) {
           }
         },
 
+        // jQuery-QueryBuilder
+        {
+          cwd: 'node_modules/jQuery-QueryBuilder/dist',
+          src: ['js/query-builder.js', 'scss/default.scss', 'scss/plugins/*'],
+          dest: 'src/libs/jquery-querybuilder',
+          expand: true,
+          rename: function (dest, src) {
+            src = src.replace('js/query-builder.js', 'index.js');
+            src = src.replace('default.scss', 'index.scss');
+            src = src.replace('scss/', '');
+            return path.join(dest, src);
+          }
+        },
+
         // lodash
         {
           cwd: 'node_modules/lodash',
@@ -191,9 +206,9 @@ module.exports = function (grunt) {
 
         // mathjax
         {
-          cwd: 'node_modules/marionette/unpacked',
+          cwd: 'node_modules/mathjax/unpacked',
           src: 'MathJax.js',
-          dest: 'src/libs/marionette',
+          dest: 'src/libs/mathjax',
           expand: true,
           rename: defaultJsRename
         },
@@ -274,7 +289,7 @@ module.exports = function (grunt) {
         {
           cwd: 'node_modules/react-dom/dist',
           src: 'react-dom.js',
-          dest: 'src/libs/react-backbone',
+          dest: 'src/libs/react-dom',
           expand: true,
           rename: defaultJsRename
         },

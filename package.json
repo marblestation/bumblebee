@@ -26,6 +26,7 @@
     "es5-shim": "^4.5.9",
     "font-awesome-sass": "^4.7.0",
     "googleanalytics": "^0.3.7",
+    "jQuery-QueryBuilder": "^2.4.3",
     "jquery": "^3.2.1",
     "jqueryui": "^1.11.1",
     "lodash": "^2.4.2",
