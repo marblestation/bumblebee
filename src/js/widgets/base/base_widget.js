@@ -5,7 +5,8 @@ define([
   'js/components/api_request',
   'js/mixins/widget_mixin_method',
   'js/components/api_targets',
-  'js/mixins/dependon'
+  'js/mixins/dependon',
+  'hbs!js/wraps/templates/loading'
 ], function (
   Backbone,
   Marionette,
@@ -13,7 +14,8 @@ define([
   ApiRequest,
   WidgetMixin,
   ApiTargets,
-  Dependon
+  Dependon,
+  loadingTemplate
   ) {
 
   /**
@@ -53,6 +55,11 @@ define([
    *  defaultQueryArguments: this is a list of parameters added to each query
    *
    */
+
+  var WIDGET_STATES = {
+    'LOADING': 0,
+    'ERRORED': 1
+  };
 
 
   var BaseWidget = Marionette.Controller.extend({
@@ -139,11 +146,12 @@ define([
      * @param apiQuery
      */
     customizeQuery: function (apiQuery) {
-      var q = apiQuery.clone();
-      q.unlock();
-      if (this.defaultQueryArguments) {
-        q = this.composeQuery(this.defaultQueryArguments, q);
+      var q;
+      if (apiQuery) {
+        q = apiQuery.clone();
+        q.unlock();
       }
+      q = this.composeQuery(this.defaultQueryArguments, q);
       return q;
     },
 
@@ -205,6 +213,9 @@ define([
       var query;
       if (!apiQuery) {
         query = this.getCurrentQuery();
+        if (!query) {
+          throw new Error('Unable to get current query');
+        }
         query = query.clone();
       }
       else {
@@ -246,8 +257,16 @@ define([
     *
     * */
 
-    render : function(){
+    render : function() {
       return this.view.render();
+    },
+
+    updateState: function (state) {
+      switch(state) {
+        case WIDGET_STATES.LOADING: {
+          $(this.getEl()).html(loadingTemplate());
+        }
+      }
     }
 
 
