@@ -18,7 +18,11 @@ module.exports = {
   release: {
     options: {
       port: '<%= local.port_production || 5000 %>',
-      script: 'server.js'
+      script: 'server.js',
+      cmd: process.argv[0],
+      opts: [
+        '--log'
+      ]
     }
   }
 };
