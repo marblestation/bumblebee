@@ -11,9 +11,8 @@ module.exports = {
         globDirectory: './dist',
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         cacheId: 'bumblebee',
+        globIgnores: ['shim.js'],
         globPatterns: [
-          '*.{js,html}',
-          'js/**/*.{js,html}',
           'styles/css/**/*',
           'styles/img/*'
         ],
